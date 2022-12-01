@@ -1,0 +1,18 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update network.validators.multisig.numberOfSigners",
+   "description": "Proposal to update network.validators.multisig.numberOfSigners on testnet to expand the consensus validator list to 14."
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "network.validators.multisig.numberOfSigners",
+     "value": "14"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'

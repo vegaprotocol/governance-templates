@@ -1,0 +1,18 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update network.validators.incumbentBonus",
+   "description": "Proposal to update network.validators.incumbentBonus on testnet so that the incumbent bonus is less prohibitive to new joiners, the current value of 1 means new standby validators would need to have twice the stake of an incumbent to replace them.  Proposal reduces this bonus to 5%."
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "network.validators.incumbentBonus",
+     "value": "0.05"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'

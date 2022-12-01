@@ -1,0 +1,26 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Add asset Wrapped BTC",
+   "description": "Proposal to add asset WBTC to Vega network"
+  },
+  "terms": {
+   "newAsset": {
+    "changes": {
+     "name": "Wrapped BTC",
+     "symbol": "WBTC",
+     "decimals": "18",
+     "quantum": "0.00006",
+     "erc20": {
+      "contractAddress": "0x19577fde2C4Cf3C278466494Ab65dbE192002f65",
+      "withdrawThreshold": "1",
+      "lifetimeLimit": "30000000000000000"
+     }
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>,
+   "validationTimestamp": <set_validation_time>
+  }
+ }
+}'

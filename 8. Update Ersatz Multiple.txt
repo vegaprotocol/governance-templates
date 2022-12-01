@@ -1,0 +1,18 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update Network.Validators.Ersatz.MultipleOfTendermintValidators",
+   "description": "Proposal to update Network.Validators.Ersatz.MultipleOfTendermintValidators so that new standby validators can be set up on the network"
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "network.validators.ersatz.multipleOfTendermintValidators",
+     "value": "0.25"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'

@@ -1,0 +1,18 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update limits.assets.proposeEnabledFrom",
+   "description": "Proposal to update limits.assets.proposeEnabledFrom so that new assets can be proposed on Vega (test) network"
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "limits.assets.proposeEnabledFrom",
+     "value": "<set_asset_limit>"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'

@@ -1,0 +1,18 @@
+./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update network.validators.ersatz.rewardFactor",
+   "description": "Proposal to update network.validators.ersatz.rewardFactor on testnet so that standby validators earn rewards more similar to consensus validators to encourage new validators to join the network"
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "network.validators.ersatz.rewardFactor",
+     "value": "0.9"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'
