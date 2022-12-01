@@ -50,14 +50,15 @@ In addition, some scripts require some specific amendments.
 
 ### For the Update $VEGA Asset proposal:
 
-<set_asset_id> will need to be set to the correct identifier for the 
-
+<set_asset_id> will need to be set to the correct identifier for the $VEGA asset in that environment.
+https://api.n06.testnet.vega.xyz/api/v2/assets can be used to find this identifier on the environment in question.
+  
 ### For the removal of  restrictions on asset creation and market creation:
 
 <set_asset_limit> to be set to the date on which assets can be created FROM, in format "2022-11-21T00:00:00Z"
 <set_market_limit> to be set to the date on which markets can be created FROM, in format "2022-11-21T00:00:00Z"
 
-## Full List of Proposals to be owned by Validator Community
+## Full List of Proposals
 
   
   | #   | Type           | Name                        | Description |
