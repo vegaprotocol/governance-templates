@@ -12,6 +12,7 @@ Each of these scripts will be tested explicitly and should be re-used during eac
 | ----------- | ----------- |
 | <your_walletname>      | To be replaced with the name of the wallet the proposer intends to use.|
 | <your_public_key>   | To be replaced with the full vega key the proposer intends to use.|
+| ----------- | ----------- |
 | <set_closing_time>|To be replaced with the epochtimestamp in SECONDS on which the vote is to close (voting ends).|
 | <set_enactment_time>|To be replaced with the epochtimestamp in SECONDS on which the vote is to be enacted (changes are applied); must be greater than closing time|
 
