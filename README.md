@@ -51,7 +51,7 @@ In addition, some scripts require some specific amendments.
 ### For the Update $VEGA Asset proposal:
 
 - <set_asset_id> will need to be set to the correct identifier for the $VEGA asset in that environment.
-- https://api.n06.testnet.vega.xyz/api/v2/assets can be used to find this identifier on the environment in question.
+- https://api.n06.testnet.vega.xyz/api/v2/assets can be used to find this identifier on the environment in question, you will need to substitute the datanode address for a datanode on the relevant network
   
 ### For the removal of  restrictions on asset creation and market creation:
 
@@ -70,10 +70,10 @@ In addition, some scripts require some specific amendments.
   | 5   | Create Asset   |Create DAI Asset             |Propose governance vote to create DAI asset       |
   | 6   | Create Asset   |Create WETH Asset            |Propose governance vote to create WETH asset       |
   | 7   | Create Asset   |Create WBTC Asset            |Propose governance vote to create WBTC asset       |
-  | 8   | Network Param  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple as per Network Param Config, thereby increasing list of standby validators       |
-  | 9   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor as per Network Param Config, thereby bringing the rewards for standby validators closer to that of consensus validators       |
-  | 10  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus as per Network Param Config, thereby making it less prohibitively difficult for standby validators to replace a consensus validator       |
-  | 11  | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number as per Network Param Config, thereby increasing the number of consensus validators to 14       |
-  | 12  | Network Param  |Update Multisig Num Signers  |Propose governance vote to update Multisig Num Signers as per Network Param config to align with increase in tendermint number       |
+  | 8   | Network Param  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25, thereby creating the list of standby validators (previous value 0)       |
+  | 9   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)      |
+  | 10  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
+  | 11  | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
+  | 12  | Network Param  |Update Multisig Num Signers  |Propose governance vote to update Multisig Num Signers to 14 to align with increase in tendermint number (previous value 13)       |
   
   
