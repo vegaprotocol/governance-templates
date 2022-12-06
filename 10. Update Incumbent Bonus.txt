@@ -1,4 +1,4 @@
-./vegawallet command send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
  "proposalSubmission": {
   "rationale": {
    "title": "Update network.validators.incumbentBonus",
