@@ -11,7 +11,7 @@
      "value": "<set_asset_limit - See readme for details>"
     }
    },
-   "closingTimestamp": <set_closing_time>,
+   "closingTimestamp": <set_closing_time - See readme for details>,
    "enactmentTimestamp": <set_enactment_time - See readme for details>
   }
  }
