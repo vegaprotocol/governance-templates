@@ -55,8 +55,8 @@ In addition, some scripts require some specific amendments.
   
 ### For the removal of  restrictions on asset creation and market creation:
 
-- <set_asset_limit> to be set to the date on which assets can be created FROM, in format "2022-11-21T00:00:00Z"
-- <set_market_limit> to be set to the date on which markets can be created FROM, in format "2022-11-21T00:00:00Z"
+- <set_asset_limit> to be set to the date on which assets can be created FROM, in format "2022-11-21T00:00:00Z". NOTE: This value MUST be in the future or the update will FAIL.
+- <set_market_limit> to be set to the date on which markets can be created FROM, in format "2022-11-21T00:00:00Z". NOTE: This value MUST be in the future or the update will FAIL.
 
 ## Full List of Proposals
 
