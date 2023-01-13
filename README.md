@@ -22,7 +22,7 @@ Websites such as https://www.epochconverter.com/ can be used to generate a suita
 
 ## Current Min duration values:
   
-### Internal Dry Run Environment (to be included in Genesis file update prior to dry run)
+### Internal Dry Run Environment
 | Proposal Type      | MinClose |MinEnact |
 | ----------- | ----------- |----------- |
 | Update Asset      | 30S       |30S       |
