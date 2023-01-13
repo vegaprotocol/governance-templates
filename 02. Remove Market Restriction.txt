@@ -8,11 +8,11 @@
    "updateNetworkParameter": {
     "changes": {
      "key": "limits.markets.proposeEnabledFrom",
-     "value": "<set_market_limit>"
+     "value": "<set_market_limit - See readme for details>"
     }
    },
-   "closingTimestamp": <set_closing_time>,
-   "enactmentTimestamp": <set_enactment_time>
+   "closingTimestamp": <set_closing_time - See readme for details>,
+   "enactmentTimestamp": <set_enactment_time - See readme for details>
   }
  }
 }'
