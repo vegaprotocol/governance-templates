@@ -19,22 +19,14 @@ NB.
 Timestamps must indicate a duration greater than the MinClose and the MinEnact for that type of governance proposal on the relevant network.
 Websites such as https://www.epochconverter.com/ can be used to generate a suitable timestamp.  Note this timestamp must be given in **seconds**. 
 
-## Current Min duration values:
+## Min duration values:
   
-### Mainnet Mirror Environment
+### Validator Testnet
 | Proposal Type      | MinClose |MinEnact |
 | ----------- | ----------- |----------- |
-| Update Asset      | 30S       |30S       |
-| Create Asset   | 30S        |30S       |
-| Update Network Param   | 30S        |30S       |
-
-  
-### Validator Testnet (to be included in Genesis file update prior to dry run)
-| Proposal Type      | MinClose |MinEnact |
-| ----------- | ----------- |----------- |
-| Update Asset      | 1H       |1H       |
-| Create Asset   | 1H        |1H       |
-| Update Network Param   | 1H        |1H       |
+| Update Asset      | 10m       |10m       |
+| Create Asset   | 10m        |10m       |
+| Update Network Param   | 10m        |10m       |
 
 ### Mainnet
 | Proposal Type      | MinClose |MinEnact |
