@@ -2,7 +2,7 @@
 
 The list of proposals below are the full list that are  required to enable trading on a network.
 The proposal scripts have all been fully tested internally and used to enable trading on the mainnet mirror network.
-The validators can used the same scrips to enable trading on their own testnet when they see fit.
+The validators can use the same scrips to enable trading on their own testnet when they see fit.
 
 ## Values to be adjusted
 Each of these scripts can be re-used, but the following part of the script will need to be changed:
