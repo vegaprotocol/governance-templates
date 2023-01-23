@@ -15,11 +15,10 @@ Each of these scripts can be re-used, but the following part of the script will 
 | <set_closing_time>|To be replaced with the epochtimestamp in SECONDS on which the vote is to close (voting ends).|
 | <set_enactment_time>|To be replaced with the epochtimestamp in SECONDS on which the vote is to be enacted (changes are applied); must be greater than closing time|
 
-NB. 
-Timestamps must indicate a duration greater than the MinClose and the MinEnact for that type of governance proposal on the relevant network.
-Websites such as https://www.epochconverter.com/ can be used to generate a suitable timestamp.  Note this timestamp must be given in **seconds**. 
 
 ## Min duration values:
+ 
+Closing and enactment timestamps must indicate a duration greater than the MinClose and the MinEnact for that type of governance proposal on the relevant network.  Websites such as https://www.epochconverter.com/ can be used to generate a suitable timestamp.  Note this timestamp must be given in **seconds**.  The minimum close and enactment times for each environment are shown below.
   
 ### Validator Testnet
 | Proposal Type      | MinClose |MinEnact |
