@@ -1,12 +1,11 @@
 # Governance templates
 
-The list of proposals below are the full list that will be required in order to enable trading on mainnet.
-The same list will be run in order to initially conduct an internal dry run of the runbook for testing purposes w/c 5th Dec.
-Following this, the validators are expected to conduct their own dry run on their validator testnet w/c 12th Dec.
-Finally, the same set of scripts can be used by the community to enable trading on mainnet when desired.
+The list of proposals below are the full list that are  required to enable trading on a network.
+The proposal scripts have all been fully tested internally and used to enable trading on the mainnet mirror network.
+The validators can used the same scrips to enable trading on their own testnet when they see fit.
 
 ## Values to be adjusted
-Each of these scripts will be tested explicitly and should be re-used during each phase, but the following part of the script will need to be changed:
+Each of these scripts can be re-used, but the following part of the script will need to be changed:
 
 | Field      | Description |
 | ----------- | ----------- |
