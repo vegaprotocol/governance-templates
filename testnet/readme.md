@@ -2,7 +2,7 @@
 
 The proposals listed in this folder can be used to upgrade the validator testnet when ready.
 Follow the instructions on the readme in the root folder for details of how to amend these scripts.
-Note that 4 scripts are provided to create test settlement assets, and these assets have already been created on Sepolia by the team, therefore the contract addresses given can be used exactly as shown.
+Note that 4 scripts are provided to create test settlement assets, and these assets have already been created on the Sepolia network by the team, therefore the contract addresses given can be used exactly as shown.
 
 ## Full List of Proposals
 
