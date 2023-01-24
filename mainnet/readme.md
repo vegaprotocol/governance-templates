@@ -1,0 +1,25 @@
+# Mainnet Governance Templates
+
+The proposals listed in this folder can be used to upgrade mainnet if and when the community decides to do so.
+Follow the instructions on the readme in the root folder for details of how to amend these scripts.
+Unlike the testnet folder, the community will need to decide which assets they wish to create and find the relevant details from the ethereum  network to set up these scripts.
+Therefore unlike in the testnet folder, one single asset creation template is provided here, which must be updated by whomever wishes to propose an asset.
+
+## Full List of Proposals
+
+  
+  | #   | Type           | Name                        | Description |
+  | --- | -------------- |---------------------------- |----------- |
+  | 1   | Network Param  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation       |
+  | 2   | Network Param  |Remove Market Restriction    |Propose governance vote to remove restriction on market creation       |
+  | 3   | Network Param  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25, thereby creating the list of standby validators (previous value 0)       |
+  | 4   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)|
+  | 5  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
+  | 6   | Update Asset   |Update $VEGA Limits          |Propose governance vote to update the limits on the test $VEGA asset|
+  | 7   | Create Asset   |Create Asset Template            |Propose governance vote to create the required mainnet assets       |
+  | 8 | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
+  | 9  | Network Param  |Update Multisig Num Signers  |Propose governance vote to update Multisig Num Signers to 14 to align with increase in tendermint number (previous value 13)       |
+  
+  ## Asset Creation
+  
+  
