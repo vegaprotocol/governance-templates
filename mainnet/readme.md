@@ -22,4 +22,14 @@ Therefore unlike in the testnet folder, one single asset creation template is pr
   
   ## Asset Creation
   
-  
+When creating mainnet assets, the following information will be required.  Full information is available on the [docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-asset-proposal).
+
+| Name           | Description                        |
+| -------------- |---------------------------- |
+| `name`  |The name of the asset on Ethereum network    |
+| `symbol`  | The name of the asset on Ethereum network   |
+| `decimals` | The number of decimal places / precision handled by this asset   |
+| `quantum`  | The lowest meaningful amount of this asset.  Approx the amount equal to 1 USD.  Does not need to be accurate, just the correct order of magnitude.   |
+| `withdrawThreshold` |   The contract address from ethereum  |
+| `lifetimeLimit` | The amount of the asset that can be deposited by a single ethereum address, advised to be set fairly low during Alpha mainnet, can be raised later   |
+            
