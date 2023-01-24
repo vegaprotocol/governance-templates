@@ -1,4 +1,4 @@
-#Testnet
+# Testnet Governance Templates
 
 The proposals listed in this folder can be used to upgrade the validator testnet when ready.
 Follow the instructions on the readme in the root folder for details of how to amend these scripts.
