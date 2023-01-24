@@ -12,9 +12,9 @@
      "decimals": "18",
      "quantum": "1",
      "erc20": {
-      "contractAddress": "0x3A387f58e34258EB8011529e7D7018B8aCaf6A63",
+      "contractAddress": "0xC0Dea51cFfc7e2c1e2fDEB7CF6758cb2A19699dc",
       "withdrawThreshold": "1",
-      "lifetimeLimit": "500000000000000000000"
+      "lifetimeLimit": "50000000000000000000000000"
      }
     }
    },
