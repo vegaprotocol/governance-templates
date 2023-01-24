@@ -1,8 +1,11 @@
 # Governance templates
 
-The list of proposals below are the full list that are  required to enable trading on a network.
+This repo contains the full list of governance proposals that that are required to enable trading on a network.
 The proposal scripts have all been fully tested internally and used to enable trading on the mainnet mirror network.
-The validators can use the same scrips to enable trading on their own testnet when they see fit.
+The validators can use the same scrips to enable trading on their own testnet when they see fit.  Later when ready the community can use them to enable trading on mainnet.
+
+#How to use this repo
+The repo is split into two folders, one containing the full list of proposals required to enable trading on the validator testnet, including contract addresses to create test assets on Sepolia. The second contains templates for making simliar proposals in mainnet, which the community will need to adjust to create the desired assets when they are ready. 
 
 ## Values to be adjusted
 Each of these scripts can be re-used, but the following part of the script will need to be changed:
@@ -48,22 +51,5 @@ In addition, some scripts require some specific amendments.
 - <set_asset_limit> to be set to the date on which assets can be created FROM, in format "2022-11-21T00:00:00Z". NOTE: This value MUST be in the future or the update will FAIL.
 - <set_market_limit> to be set to the date on which markets can be created FROM, in format "2022-11-21T00:00:00Z". NOTE: This value MUST be in the future or the update will FAIL.
 
-## Full List of Proposals
-
-  
-  | #   | Type           | Name                        | Description |
-  | --- | -------------- |---------------------------- |----------- |
-  | 1   | Network Param  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation       |
-  | 2   | Network Param  |Remove Market Restriction    |Propose governance vote to remove restriction on market creation       |
-  | 3   | Network Param  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25, thereby creating the list of standby validators (previous value 0)       |
-  | 4   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)|
-  | 5  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
-  | 6   | Update Asset   |Update $VEGA Limits          |Propose governance vote to update the limits on the test $VEGA asset|
-  | 7   | Create Asset   |Create USDT Asset            |Propose governance vote to create a test version of USDT asset       |
-  | 8   | Create Asset   |Create DAI Asset             |Propose governance vote to create a test version of DAI asset       |
-  | 9   | Create Asset   |Create WETH Asset            |Propose governance vote to create a test version of WETH asset       |
-  | 10   | Create Asset   |Create WBTC Asset            |Propose governance vote to create a test version of WBTC asset       |
-  | 11  | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
-  | 12  | Network Param  |Update Multisig Num Signers  |Propose governance vote to update Multisig Num Signers to 14 to align with increase in tendermint number (previous value 13)       |
-  
-  
+## Full list of proposals
+The complete list of proposals differs slightly by environment, so these can be found in the relevant folder.
