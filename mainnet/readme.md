@@ -2,7 +2,7 @@
 
 The proposals listed in this folder can be used to upgrade mainnet if and when the community decides to do so.
 Follow the instructions on the readme in the root folder for details of how to amend these scripts.
-Unlike the testnet folder, the community will need to decide which assets they wish to create and find the relevant details from the ethereum  network to set up these scripts.
+Unlike the testnet folder, the community will need to decide which assets they wish to create and find the relevant details from the ethereum network to finalise these proposals.
 Therefore unlike in the testnet folder, one single asset creation template is provided here, which must be updated by whomever wishes to propose an asset.
 
 ## Full List of Proposals
