@@ -27,7 +27,7 @@ When creating mainnet assets, the following information will be required.  Full 
 | Name           | Description                        |
 | -------------- |---------------------------- |
 | `name`  |The name of the asset on Ethereum network    |
-| `symbol`  | The name of the asset on Ethereum network   |
+| `symbol`  | The symbol of the asset on Ethereum network   |
 | `decimals` | The number of decimal places / precision handled by this asset   |
 | `quantum`  | The lowest meaningful amount of this asset.  Approx the amount equal to 1 USD.  Does not need to be accurate, just the correct order of magnitude.   |
 | `withdrawThreshold` |   The contract address from ethereum  |
