@@ -32,5 +32,5 @@ When creating mainnet assets, the following information will be required.  Full 
 | `quantum`  | The lowest meaningful amount of this asset.  Approx the amount equal to 1 USD.  Does not need to be accurate, just the correct order of magnitude.   |
 | `contractAddress` |   The contract address from ethereum  |
 | `withdrawThreshold` |   The amount of the asset that can be withdrawn from the Vega network without triggering the withdrawal delay, advised to be set to zero during Alpha mainnet, can be raised later  |
-| `lifetimeLimit` | The amount of the asset that can be deposited by a single ethereum address, advised to be set fairly low during Alpha mainnet, can be raised later   |
+| `lifetimeLimit` | The amount of the asset that can be deposited by a single ethereum address, advised to be set fairly low during Alpha mainnet (an amount equivalent to few thousand USD), can be raised later and participants can whitelist themselves to avoid this if needed   |
             
