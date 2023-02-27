@@ -2,10 +2,10 @@
 
 This repo contains the full list of governance proposals that that are required to enable trading on a network.
 The proposal scripts have all been fully tested internally and used to enable trading on the mainnet mirror network.
-The validators can use the same scrips to enable trading on their own testnet when they see fit.  Later when ready the community can use them to enable trading on mainnet.
+The validators can use the same scrips to enable trading on their own testnet.  Later when the community feels the network is ready to enable trading they can also use adjusted versions on mainnet.
 
 # How to use this repo
-The repo is split into two folders, one containing the full list of proposals required to enable trading on the validator testnet, including contract addresses to create test assets on Sepolia. The second contains templates for making simliar proposals in mainnet, which the community will need to adjust to create the desired assets when they are ready. 
+The repo is split into two folders, one containing the full list of proposals required to enable trading on the validator testnet, including contract addresses to create test assets on Sepolia. The second contains templates for making simliar proposals in mainnet, which the community will need to adjust to create the desired assets when they are ready. Where proposals relate to changes to network parameters, these changes are recommendations based on internal testing and can be changed if the validators or the community wish to do so.
 
 ## Values to be adjusted
 Each of these scripts can be re-used, but the following part of the script will need to be changed:
