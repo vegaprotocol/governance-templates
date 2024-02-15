@@ -26,7 +26,7 @@ The impact from the currrent state is...
 
 ### Update-markets
 
-The Palazzo release (0.74.x) has introducted changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and price for perps funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set paramters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the ` markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet markets in order for the current markets to benefit from the implemented code changes.
+The Palazzo release (0.74.x) has introducted changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and perps funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set paramters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the ` markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet markets in order for the current markets to benefit from the implemented code changes.
 
 **Rationale**
 
