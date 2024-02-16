@@ -43,11 +43,11 @@ The Palazzo release (0.74.x) has introduced changes to the [liquidity provider f
 
 ##### Proposed value(s)
 
-No change for now, and the market maker propose to change later
+No change for now, and is for the market makers propose to change later once the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81) specifications have been understood.
 
 ##### Rationale
 
-With additional flexibility in setting the liquidity fee, two new methods have been introduced as options for liquidity fee setting: the `Stake Weighted Average method` and the `Constant Liquidity Fee Method`
+With additional flexibility in setting the liquidity fee, two new methods have been introduced as options for liquidity fee setting: the [Stake Weighted Average method](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#stake-weighted-average-method-for-setting-the-liquidity-fee-factor) and the [Constant Liquidity Fee Method](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#constant-liquidity-fee-method)
 
 #### Mark price and “composite” internal price for perpetual funding TWAP updates
 
