@@ -1,0 +1,18 @@
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update limits.markets.proposeEnabledFrom",
+   "description": "Proposal to update limits.markets.proposeEnabledFrom so that new markets can be proposed on Vega (test) network"
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "limits.markets.proposeEnabledFrom",
+     "value": "<set_market_limit - See readme for details>"
+    }
+   },
+   "closingTimestamp": <set_closing_time - See readme for details>,
+   "enactmentTimestamp": <set_enactment_time - See readme for details>
+  }
+ }
+}'
