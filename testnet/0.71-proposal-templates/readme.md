@@ -25,7 +25,7 @@ These relate to expanding the validator set, expanding the standby validator set
 
   | #   | Type           | Name                        | Description |
   | --- | -------------- |---------------------------- |----------- |
-  | 1   | Network Parametereter  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation on a given date      |
+  | 1   | Network Parameter  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation on a given date      |
   | 2   | Network Parameter  |Remove Market Restriction    |Propose governance vote to remove restriction on market creation on a give date      |
   | 3   | Network Parameter  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25 (previous value 0), thereby creating the list of standby validators.  The project team has proposed 0.25 for this, which given the protocol rounds down will lead to 3 standby validators at the current number of consensus validators         |
   | 4   | Network Parameter  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9 (previous value 0.5). The project team has proposed this value to bring the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator.  This figure is delicate to set because the value must be high enough to incentivise running a standby node, potentially when the node may not become a consensus node quickly, or at all.  However clearly also there should be a material reason to become full fledged consensus too. This value is the project team's initial best estimate at a balanced value, but feedback is welcome.|

@@ -10,15 +10,15 @@ Therefore unlike in the testnet folder, one single asset creation template is pr
 
   | #   | Type           | Name                        | Description |
   | --- | -------------- |---------------------------- |----------- |
-  | 1   | Network Param  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation       |
-  | 2   | Network Param  |Remove Market Restriction    |Propose governance vote to remove restriction on market creation       |
-  | 3   | Network Param  |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25, thereby creating the list of standby validators (previous value 0)       |
-  | 4   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)|
-  | 5  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
+  | 1   | Network Parameter |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation       |
+  | 2   | Network Parameter |Remove Market Restriction    |Propose governance vote to remove restriction on market creation       |
+  | 3   | Network Parameter |Update Ersatz Multiple       |Propose governance vote to update Ersatz Multiple to 0.25, thereby creating the list of standby validators (previous value 0)       |
+  | 4   | Network Parameter |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)|
+  | 5  | Network Parameter |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
   | 6   | Update Asset   |Update $VEGA Limits          |Propose governance vote to update the limits on the test $VEGA asset|
   | 7   | Create Asset   |Create Asset Template            |Propose governance vote to create the required mainnet assets.  Note that you will need to set the value for Quantum, the Lifetime withdrawal limit, and the Withdrawal delay threshold.  See Docs for more details       |
-  | 8 | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
-  | 9  | Network Param  |Update `Multisig Num Signers`  |Propose governance vote to update `Multisig Num Signers` to 14 to align with increase in tendermint number (previous value 13)       |
+  | 8 | Network Parameter |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
+  | 9  | Network Parameter |Update `Multisig Num Signers`  |Propose governance vote to update `Multisig Num Signers` to 14 to align with increase in tendermint number (previous value 13)       |
 
 ## Asset Creation
 
