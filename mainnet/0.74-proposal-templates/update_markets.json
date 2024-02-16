@@ -90,8 +90,8 @@
                     "cashAmount": "50000000",
                     "sourceWeights": [
                       "0.0",
-                      "1.0",
-                      "0.0",
+                      "0.999",
+                      "0.001",
                       "0.0"
                     ],
                     "sourceStalenessTolerance": [
