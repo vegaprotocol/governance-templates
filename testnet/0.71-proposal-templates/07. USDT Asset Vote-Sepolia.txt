@@ -1,0 +1,26 @@
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Add asset Tether USD",
+   "description": "Proposal to add asset USDT to Vega network"
+  },
+  "terms": {
+   "newAsset": {
+    "changes": {
+     "name": "Tether USD",
+     "symbol": "USDT",
+     "decimals": "18",
+     "quantum": "1",
+     "erc20": {
+      "contractAddress": "0xC0Dea51cFfc7e2c1e2fDEB7CF6758cb2A19699dc",
+      "withdrawThreshold": "1",
+      "lifetimeLimit": "50000000000000000000000000"
+     }
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>,
+   "validationTimestamp": <set_validation_time>
+  }
+ }
+}'

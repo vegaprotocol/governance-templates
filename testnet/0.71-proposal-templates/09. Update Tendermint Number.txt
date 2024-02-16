@@ -1,0 +1,18 @@
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update network.validators.tendermint.number",
+   "description": "Proposal to update network.validators.tendermint.number on testnet to expand the consensus validator list to 14."
+  },
+  "terms": {
+   "updateNetworkParameter": {
+    "changes": {
+     "key": "network.validators.tendermint.number",
+     "value": "14"
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>
+  }
+ }
+}'
