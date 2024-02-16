@@ -2,7 +2,7 @@
 
 The proposals listed in this folder can be used to create proposals in mainnet if and when the community decides to do so. The proposal templates have been created to work in mainnet after the Palazzo release (0.74.x), however, any community member intending to use these should carefully check the parameter values and ensure that they are as desired.
 
-> [!IMPORTANT]t
+> [!IMPORTANT]
 > A number of fields have been left with *TO_UPDATE*, members of the community will need to complete these with relevant values as required.
 
 
@@ -43,7 +43,7 @@ The Palazzo release (0.74.x) has introduced changes to the [liquidity provider f
 
 ##### Proposed value(s)
 
-No change for now, and is for the market makers propose to change later once the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81) specifications have been understood.
+No change for now, and its for the market makers propose to change later once the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81) specifications have been understood.
 
 ##### Rationale
 
