@@ -11,6 +11,7 @@ name: "Quality checks"
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+jobs:
   spellcheck:
     name: "Spellcheck"
     runs-on: ubuntu-latest
