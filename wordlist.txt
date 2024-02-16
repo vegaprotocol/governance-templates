@@ -12,6 +12,7 @@ readme
 Sepolia
 Tendermint
 tendermint
+Testnet
 testnet
 TWAP
 USD
