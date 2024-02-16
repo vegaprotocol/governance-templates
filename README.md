@@ -6,7 +6,7 @@ The validators can use the same scrips to enable trading on their own testnet.  
 
 ## How to use this repository
 
-The repository is split into two folders, one containing the full list of proposals required to enable trading on the validator testnet, including contract addresses to create test assets on Sepolia. The second contains templates for making simliar proposals in mainnet, which the community will need to adjust to create the desired assets when they are ready. Where proposals relate to changes to network parameters, these changes are recommendations based on internal testing and can be changed if the validators or the community wish to do so.
+The repository is split into two folders, one containing the full list of proposals required to enable trading on the validator testnet, including contract addresses to create test assets on Sepolia. The second contains templates for making similar proposals in mainnet, which the community will need to adjust to create the desired assets when they are ready. Where proposals relate to changes to network parameters, these changes are recommendations based on internal testing and can be changed if the validators or the community wish to do so.
 
 ## Values to be adjusted
 
@@ -16,7 +16,7 @@ Each of these scripts can be re-used, but the following part of the script will 
 | ----------- | ----------- |
 | <your_walletname>      | To be replaced with the name of the wallet the proposer intends to use.|
 | <your_public_key>   | To be replaced with the full vega key the proposer intends to use.|
-| <set_network> | To be replaced with the intended network as named in the network configuration on the user's vegawallet; can be found with command "`vegawallet` network list" on CLI. |
+| <set_network> | To be replaced with the intended network as named in the network configuration on the user's vegawallet; can be found with command "vegawallet network list" on CLI. |
 | <set_closing_time>|To be replaced with the `epochtimestamp` in SECONDS on which the vote is to close (voting ends).|
 | <set_enactment_time>|To be replaced with the `epochtimestamp` in SECONDS on which the vote is to be enacted (changes are applied); must be greater than closing time|
 
