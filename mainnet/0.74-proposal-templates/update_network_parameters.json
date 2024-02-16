@@ -1,0 +1,32 @@
+{
+  "batchProposalSubmission": {
+    "rationale": {
+      "description": "Update some network parameters",
+      "title": "Update network parameters to support new v0.74.x features"
+    },
+    "reference": "********UPDATE_OR_REMOVE****",
+    "terms": {
+      "closingTimestamp": "********UPDATE*******",
+      "changes": [
+        {
+          "enactmentTimestamp": "********UPDATE********",
+          "updateNetworkParameter": {
+            "changes": {
+              "key": "market.liquidity.minimum.probabilityOfTrading.lpOrders",
+              "value": "0.001"
+            }
+          }
+        },
+        {
+          "enactmentTimestamp": "1707935672",
+          "updateNetworkParameter": {
+            "changes": {
+              "key": "market.liquidity.probabilityOfTrading.tau.scaling",
+              "value": "0.1"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
