@@ -3,7 +3,7 @@
 The proposals listed in this folder can be used to create proposals in mainnet if and when the community decides to do so. The proposal templates have been created to work in mainnet after the Palazzo release (0.74.x), however, any community member intending to use these should carefully check the parameter values and ensure that they are as desired.
 
 > [!IMPORTANT]
-> A number of fields have been left with *TO_UPDATE*, members of the community will need to complete these with relevant values as required.
+> A number of fields have been left with "TO_UPDATE", members of the community will need to complete these with relevant values as required.
 
 
 ## Full list of proposals
