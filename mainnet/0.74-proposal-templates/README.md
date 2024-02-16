@@ -44,7 +44,7 @@ The Palazzo release (0.74.x) has introduced changes to the [liquidity provider f
 
 ***Liquidity provider fee setting***
 
-There are three methods for setting the liquidity fee factor, with the default method being the current `Marginal Cost method`. The liquidity fee setting mechanism is configured per market as part of the market proposal. The newly added two methods are `Stake-weighted-average method for setting the liquidity fee factor` and `Constant Liquidity Fee Method`
+There are three methods for setting the liquidity fee factor, with the default method being the current `Marginal Cost method`. The liquidity fee setting mechanism is configured per market as part of the market proposal. The newly added two methods are `Stake Weighted Average method` and `Constant Liquidity Fee Method`
 
 ***Mark price and “composite” internal price for perps funding TWAP updates​***
 
