@@ -42,8 +42,18 @@ The Palazzo release (0.74.x) has introducted changes to the [liquidity provider 
 
 **Rationale**
 
-The rationale for these changes is...
+***Liduidity provider fee setting***
 
-**Impact**
+There are three methods for setting the liquidity fee factor, with the default method being the current `Marginal Cost method`. The liquidity fee setting mechanism is configured per market as part of the market proposal. The newly added two methods are `Stake-weighted-average method for setting the liquidity fee factor` and `Constant Liquidity Fee Method`
 
-The impact from the currrent state is...
+***Mark price and “composite” internal price for perps funding TWAP updates​***
+
+For perpetual futures markets, there are now flexible configuration options for both mark price and the composite internal price for funding. This allows the market to potentially use different mark price methods for mark-to-market and price monitoring, and a completely different price for calculating funding (for perpetual futures markets).
+
+The new mark price configuration provides flexibility in configuring the mark price from various sources, such as trade prices under various time decay, VWAP of notional prices from the limit order book or even oracle prices. These can be composed either via weighted averages or median and optionally only considering sources that were refreshed within a sliding time window.
+
+***Liquidation strategy improvements​***
+
+Improvements have been made to how distressed parties are liquidated. Now new market proposals will need to include a liquidation strategy configuration.
+This configuration is used to allow the network to hold an active position on the market. Parties that are distressed, but previously couldn't be liquidated because there was insufficient volume on the book, will now be liquidated. In this process the party's position is transferred to the network party, and rather than dumping the distressed volume on the market, an inventory management strategy carries this out over time.
+
