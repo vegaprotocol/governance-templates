@@ -22,6 +22,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
+                  "fundingRateLowerBound": "-0.01",
+                  "fundingRateUpperBound": "0.01",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
@@ -97,8 +99,8 @@
                     "sourceStalenessTolerance": [
                       "1m",
                       "1m",
-                      "1m",
-                      "1m"
+                      "10m",
+                      "10m"
                     ],
                     "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
                     "dataSourcesSpec": [
@@ -293,6 +295,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
+                  "fundingRateLowerBound": "-0.01",
+                  "fundingRateUpperBound": "0.01",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
