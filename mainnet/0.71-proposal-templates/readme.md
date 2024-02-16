@@ -7,7 +7,7 @@ Therefore unlike in the testnet folder, one single asset creation template is pr
 
 ## Full List of Proposals
 
-  
+
   | #   | Type           | Name                        | Description |
   | --- | -------------- |---------------------------- |----------- |
   | 1   | Network Param  |Remove Asset Restriction     |Propose governance vote to remove restriction on asset creation       |
@@ -16,12 +16,12 @@ Therefore unlike in the testnet folder, one single asset creation template is pr
   | 4   | Network Param  |Update Ersatz Reward Factor  |Propose governance vote to update Reward Factor to 0.9, thereby bringing the rewards for standby validators closer to that of consensus validators to ensure it is desirable to become a standby validator (previous value 0.5)|
   | 5  | Network Param  |Update Incumbent Bonus       |Propose governance vote to update Incumbent Bonus to 0.05, thereby making it less prohibitively difficult for standby validators to replace a consensus validator (previous value 1)      |
   | 6   | Update Asset   |Update $VEGA Limits          |Propose governance vote to update the limits on the test $VEGA asset|
-  | 7   | Create Asset   |Create Asset Template            |Propose governance vote to create the required mainnet assets.  Note that you will need to set the value for Quantum, the Lifetime withdrawal limit, and the Withdrawal delauy threshold.  See Docs for more details       |
+  | 7   | Create Asset   |Create Asset Template            |Propose governance vote to create the required mainnet assets.  Note that you will need to set the value for Quantum, the Lifetime withdrawal limit, and the Withdrawal delay threshold.  See Docs for more details       |
   | 8 | Network Param  |Update Tendermint Number     |Propose governance vote to update Tendermint Number to 14, thereby increasing the number of consensus validators to 14 (previous value 13)       |
-  | 9  | Network Param  |Update Multisig Num Signers  |Propose governance vote to update Multisig Num Signers to 14 to align with increase in tendermint number (previous value 13)       |
-  
-  ## Asset Creation
-  
+  | 9  | Network Param  |Update `Multisig Num Signers`  |Propose governance vote to update `Multisig Num Signers` to 14 to align with increase in tendermint number (previous value 13)       |
+
+## Asset Creation
+
 When creating mainnet assets, the following information will be required.  Full information is available on the [docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-asset-proposal).
 
 | Name           | Description                        |
@@ -30,7 +30,6 @@ When creating mainnet assets, the following information will be required.  Full 
 | `symbol`  | The symbol of the asset on Ethereum network   |
 | `decimals` | The number of decimal places / precision handled by this asset   |
 | `quantum`  | The lowest meaningful amount of this asset.  Approx the amount equal to 1 USD.  Does not need to be accurate, just the correct order of magnitude.   |
-| `contractAddress` |   The contract address from ethereum  |
+| `contractAddress` |   The contract address from Ethereum  |
 | `withdrawThreshold` |   The amount of the asset that can be withdrawn from the Vega network without triggering the withdrawal delay, advised to be set to zero during Alpha mainnet, can be raised later  |
-| `lifetimeLimit` | The amount of the asset that can be deposited by a single ethereum address, advised to be set fairly low during Alpha mainnet (an amount equivalent to few thousand USD), can be raised later and participants can whitelist themselves to avoid this if needed   |
-            
+| `lifetimeLimit` | The amount of the asset that can be deposited by a single Ethereum address, advised to be set fairly low during Alpha mainnet (an amount equivalent to few thousand USD), can be raised later and participants can whitelist themselves to avoid this if needed   |

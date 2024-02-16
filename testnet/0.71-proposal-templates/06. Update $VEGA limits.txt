@@ -1,0 +1,22 @@
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Update $VEGA asset limits",
+   "description": "Proposal to update the limits of $VEGA asset"
+  },
+  "terms": {
+   "updateAsset": {
+    "assetId": <set_asset_id>,
+    "changes": {
+     "quantum": "1",
+     "erc20": {
+      "withdrawThreshold": "1",
+      "lifetimeLimit": "10000000000000000000000"
+     }
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>,
+  }
+ }
+}'

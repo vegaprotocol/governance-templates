@@ -1,0 +1,26 @@
+./vegawallet transaction send --wallet <your_walletname> --pubkey <your_public_key> --network <set_network> '{
+ "proposalSubmission": {
+  "rationale": {
+   "title": "Add asset Dai Stablecoin",
+   "description": "Proposal to add asset DAI to Vega network"
+  },
+  "terms": {
+   "newAsset": {
+    "changes": {
+     "name": "Dai Stablecoin",
+     "symbol": "DAI",
+     "decimals": "18",
+     "quantum": "1",
+     "erc20": {
+      "contractAddress": "0x5c0e7E7c336BC7fA7f04Ebd8874B9Fe42FC12C90",
+      "withdrawThreshold": "1",
+      "lifetimeLimit": "50000000000000000000000000"
+     }
+    }
+   },
+   "closingTimestamp": <set_closing_time>,
+   "enactmentTimestamp": <set_enactment_time>,
+   "validationTimestamp": <set_validation_time>
+  }
+ }
+}'
