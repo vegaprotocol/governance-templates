@@ -1,3 +1,5 @@
+BTC
+ETH
 CLI
 DAI
 Ethereum
@@ -10,9 +12,12 @@ Sepolia
 Tendermint
 tendermint
 testnet
+TWAP
 USD
 USDT
 Validator
 validator
 Validators
 validators
+vegawallet
+VWAP
