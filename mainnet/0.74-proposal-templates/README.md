@@ -37,13 +37,13 @@ The figure below demonstrates how a new LP willing to meet the minimum commitmen
 
 ### Update markets
 
-The Palazzo release (0.74.x) has introducted changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and perps funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set market paramters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the `markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet BTC/USD and ETH/USD markets in order for the these markets to benefit from the implemented code changes.
+The Palazzo release (0.74.x) has introduced changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and perps funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set market parameters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the `markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet BTC/USD and ETH/USD markets in order for the these markets to benefit from the implemented code changes.
 
 #### Rationale
 
-***Liduidity provider fee setting***
+***Liquidity provider fee setting***
 
-There are three methods for setting the liquidity fee factor, with the default method being the current `Marginal Cost method`. The liquidity fee setting mechanism is configured per market as part of the market proposal. The newly added two methods are `Stake-weighted-average method for setting the liquidity fee factor` and `Constant Liquidity Fee Method`
+There are three methods for setting the liquidity fee factor, with the default method being the current `Marginal Cost` method. The liquidity fee setting mechanism is configured per market as part of the market proposal. The newly added two methods are `Stake Weighted Average` method and `Constant Liquidity Fee` method
 
 ***Mark price and “composite” internal price for perps funding TWAP updates​***
 
