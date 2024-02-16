@@ -22,38 +22,38 @@ This proposal changes the `market.liquidity.probabilityOfTrading.tau.scaling` fr
 
 Currently when calculating a liquidity providers (LP) liquidity score, the network calculates the cumulative notional volume of their orders weighted by each orders probability of trading.
 
-To incentivise a tighter spread by rewarding competitive LPs with a larger proportion of the liquidity fees; an update to tau scaling could be suggested to reduce the probability of trading given by the risk model for orders placed further from the best-bid / ask.
+To incentivise a tighter spread by rewarding competitive liquidity providers with a larger proportion of the liquidity fees; an update to tau scaling could be suggested to reduce the probability of trading given by the risk model for orders placed further from the best-bid / ask.
 
 
 #### Impact
 
-The figure below demonstrates how the normalised liquidity scores for each existing LP would change after updating tau scaling from `1` to `0.1`. LPs providing volume close to the best-bid / ask would see the greatest increase in their normalised liquidity scores.
+The figure below demonstrates how the normalised liquidity scores for each existing LP would change after updating tau scaling from `1` to `0.1`. liquidity providers providing volume close to the best-bid / ask would see the greatest increase in their normalised liquidity scores.
 
 ![normalised liquidity scores](./btcusd_liquidity_scores_1.png)
 
-The figure below demonstrates how a new LP willing to meet the minimum commitment by providing volume with a tight spread would now receive a greater liquidity score. This also demonstrates the incentive for existing LPs to compete on the best-bid / ask as doing so reduces the weighted volume of their competitors orders.
+The figure below demonstrates how a new LP willing to meet the minimum commitment by providing volume with a tight spread would now receive a greater liquidity score. This also demonstrates the incentive for existing liquidity providers to compete on the best-bid / ask as doing so reduces the weighted volume of their competitors orders.
 
 ![minimum commitment](./btcusd_liquidity_scores_2.png)
 
 ### Update markets
 
-The Palazzo release (0.74.x) has introduced changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and perps funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set market parameters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the `markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet BTC/USD and ETH/USD markets in order for the these markets to benefit from the implemented code changes.
+The Palazzo release (0.74.x) has introduced changes to the [liquidity provider fee settings](https://github.com/vegaprotocol/roadmap/issues/81), [liquidation mechanism](https://github.com/vegaprotocol/roadmap/issues/85) and the [mark price and perpetual funding TWAP updates](https://github.com/vegaprotocol/roadmap/issues/89). Due to these changes it is now possible to set market parameters for the `liquidityFeeSettings` method, `liquidationStrategy` configuration and the `markPriceConfiguration` parameters respectively. This proposal is to update the current mainnet BTC/USD and ETH/USD markets in order for the these markets to benefit from the implemented code changes.
 
-#### Liquidity provider fee setting 
+#### Liquidity provider fee setting
 
 ##### Proposed value(s)
 
 No change for now, and the market maker propose to change later
 
-##### Rationale 
+##### Rationale
 
 With additional flexibility in setting the liquidity fee, two new methods have been introduced as options for liquidity fee setting: the `Stake Weighted Average method` and the `Constant Liquidity Fee Method`
 
-#### Mark price and “composite” internal price for perps funding TWAP updates
+#### Mark price and “composite” internal price for perpetual funding TWAP updates
 
 ##### Proposed value(s)
 
-The proposed value sits in section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data souce is set in section `dataSourcesSpec`. 
+The proposed value sits in section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
 
 ##### Rationale
 
@@ -63,7 +63,7 @@ For perpetual futures markets, there are now flexible configuration options for 
 
 ##### Proposed value(s)
 
-Liquidtaion startegy is a new section which can be set in `liquidationStrategy` while `disposalTimeStep` is set to `30`, `disposalFraction` is set to `0.1`, `disposalFraction` is set to `0`, and `maxFractionConsumed` is set to `0.1`
+Liquidation strategy is a new section which can be set in `liquidationStrategy` while `disposalTimeStep` is set to `30`, `disposalFraction` is set to `0.1`, `disposalFraction` is set to `0`, and `maxFractionConsumed` is set to `0.1`
 
 ##### Rationale
 
