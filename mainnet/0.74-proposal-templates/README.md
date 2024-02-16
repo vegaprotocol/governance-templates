@@ -14,7 +14,6 @@ The proposals listed in this folder can be used to create proposals in mainnet i
   | 2   | Market update | [update_markets.json](./update_markets.json)   | Propose governance vote to update existing markets with the new mark price configuration  |
 
 
-
 ### Update network parameters
 
 This proposal changes the `market.liquidity.probabilityOfTrading.tau.scaling` from a value of `1` to a value of `0.1`. The network parameter value range restrictions were changed as a result of this [specification change](https://github.com/vegaprotocol/specs/pull/2134/files) allowing values lower than `1`. In addition to this an associated change of the `market.liquidity.minimum.probabilityOfTrading.lpOrders` parameter is proposed taking the value from `0.000001` to `0.001`.
@@ -30,11 +29,11 @@ To incentivise a tighter spread by rewarding competitive LPs with a larger propo
 
 The figure below demonstrates how the normalised liquidity scores for each existing LP would change after updating tau scaling from `1` to `0.1`. LPs providing volume close to the best-bid / ask would see the greatest increase in their normalised liquidity scores.
 
-![](./btcusd_liquidity_scores_1.png)
+![normalised liquidity scores](./btcusd_liquidity_scores_1.png)
 
 The figure below demonstrates how a new LP willing to meet the minimum commitment by providing volume with a tight spread would now receive a greater liquidity score. This also demonstrates the incentive for existing LPs to compete on the best-bid / ask as doing so reduces the weighted volume of their competitors orders.
 
-![](./btcusd_liquidity_scores_2.png)
+![minimum commitment](./btcusd_liquidity_scores_2.png)
 
 ### Update markets
 
