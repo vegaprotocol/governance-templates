@@ -51,7 +51,7 @@ With additional flexibility in setting the liquidity fee, two new methods have b
 
 #### Mark price and “composite” internal price for perpetual funding TWAP updates
 
-For information on the new mark price feilds and how they are used please see the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
+For information on the new mark price fields and how they are used please see the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
 ##### Proposed value(s)
 
