@@ -11,7 +11,7 @@ The proposals listed in this folder can be used to create proposals in mainnet i
   | #   | Type           | Name                        | Description |
   | --- | -------------- |---------------------------- |----------- |
   | 1   | Network parameters  | [update_network_parameters.json](./update_network_parameters.json)     | Propose governance vote to update the tau scaling parameters      |
-  | 2   | Market update | [update_markets.json](./update_markets.json)   | Propose governance vote to update existing markets with the new mark price configuration  |
+  | 2   | Market update | [update_markets.json](./update_markets.json)   | Propose governance vote to update the existing BTC/USDT and ETH/USDT markets with the new 0.74.x configurations  |
 
 
 ## Update network parameters
