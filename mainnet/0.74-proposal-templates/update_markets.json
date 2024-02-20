@@ -4,17 +4,17 @@
       "description": "Update market BTC/USD and ETH/USD",
       "title": "Update Markets to support new v0.74.x features"
     },
-    "reference": "***********TO_UPDATE_OR_REMOVE********",
+    "reference": "**TO_UPDATE_OR_REMOVE**",
     "terms": {
-      "closingTimestamp": "*******TO_UPDATE*******",
+      "closingTimestamp": "**TO_UPDATE**",
       "changes": [
         {
-          "enactmentTimestamp": "*******TO_UPDATE*******",
+          "enactmentTimestamp": "**TO_UPDATE**",
           "updateMarket": {
             "marketId": "4e9081e20e9e81f3e747d42cb0c9b8826454df01899e6027a22e771e19cc79fc",
             "changes": {
               "instrument": {
-                "code": "BTCUSDT.PERP",
+                "code": "BTC/USDT",
                 "name": "Bitcoin / Tether USD (Perpetual)",
                 "perpetual": {
                   "quoteName": "USDT",
@@ -85,7 +85,7 @@
                     "settlementDataProperty": "btc.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "1.0",
+                  "fundingRateScalingFactor": "0.00001",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -155,28 +155,34 @@
               },
               "metadata": [
                 "base:BTC",
-                "quote:USD",
+                "quote:USDT",
                 "oracle:pyth",
-                "chain:gnosis",
+                "oracleChain:gnosis",
                 "class:fx/crypto",
                 "perpetual",
-                "sector:defi"
+                "sector:defi",
+                "enactment:2023-12-01T18:00:00Z"
               ],
               "priceMonitoringParameters": {
                 "triggers": [
                   {
+                    "horizon": "21600",
+                    "probability": "0.9999999",
+                    "auctionExtension": "86400"
+                  },
+                  {
                     "horizon": "4320",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "300"
                   },
                   {
                     "horizon": "1440",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "180"
                   },
                   {
                     "horizon": "360",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "120"
                   }
                 ]
@@ -191,45 +197,42 @@
               },
               "logNormal": {
                 "riskAversionParameter": 1e-06,
-                "tau": 3.80258e-06,
+                "tau": 3.995e-06,
                 "params": {
                   "mu": 0,
                   "r": 0,
-                  "sigma": 1.5
+                  "sigma": 1
                 }
               },
               "linearSlippageFactor": "0.001",
               "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.685",
+                "commitmentMinTimeFraction": "0.85",
                 "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.5"
               },
-              "liquidityFeeSettings": null,
+              "liquidityFeeSettings": {
+                "method": "METHOD_MARGINAL_COST"
+              },
               "liquidationStrategy": {
-                "disposalTimeStep": "30",
-                "disposalFraction": "0.1",
-                "fullDisposalSize": "0",
+                "disposalTimeStep": "1",
+                "disposalFraction": "1",
+                "fullDisposalSize": "1000000",
                 "maxFractionConsumed": "0.1"
               },
               "markPriceConfiguration": {
                 "decayWeight": "1.0",
                 "decayPower": "1",
-                "cashAmount": "5000000",
-                "sourceWeights": [
-                  "0.0",
-                  "0.0",
-                  "0.0",
-                  "1.0"
-                ],
+                "cashAmount": "50000000",
+                "sourceWeights": [],
                 "sourceStalenessTolerance": [
                   "1m",
                   "1m",
                   "1m",
                   "1m"
                 ],
-                "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                "compositePriceType": "COMPOSITE_PRICE_TYPE_MEDIAN",
                 "dataSourcesSpec": [
                   {
                     "external": {
@@ -282,12 +285,12 @@
           }
         },
         {
-          "enactmentTimestamp": "*********TO_UPDATE*********",
+          "enactmentTimestamp": "**TO_UPDATE**",
           "updateMarket": {
             "marketId": "e63a37edae8b74599d976f5dedbf3316af82579447f7a08ae0495a021fd44d13",
             "changes": {
               "instrument": {
-                "code": "ETHUSDT.PERP",
+                "code": "ETH/USDT",
                 "name": "Ether / Tether USD (Perpetual)",
                 "perpetual": {
                   "quoteName": "USDT",
@@ -358,7 +361,7 @@
                     "settlementDataProperty": "eth.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "1.0",
+                  "fundingRateScalingFactor": "0.00001",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -428,28 +431,34 @@
               },
               "metadata": [
                 "base:ETH",
-                "quote:USD",
+                "quote:USDT",
                 "oracle:pyth",
-                "chain:gnosis",
+                "oracleChain:gnosis",
                 "class:fx/crypto",
                 "perpetual",
-                "sector:defi"
+                "sector:defi",
+                "enactment:2023-11-19T02:00:00Z"
               ],
               "priceMonitoringParameters": {
                 "triggers": [
                   {
+                    "horizon": "21600",
+                    "probability": "0.9999999",
+                    "auctionExtension": "86400"
+                  },
+                  {
                     "horizon": "4320",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "300"
                   },
                   {
                     "horizon": "1440",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "180"
                   },
                   {
                     "horizon": "360",
-                    "probability": "0.99",
+                    "probability": "0.9999999",
                     "auctionExtension": "120"
                   }
                 ]
@@ -464,32 +473,33 @@
               },
               "logNormal": {
                 "riskAversionParameter": 1e-06,
-                "tau": 3.80258e-06,
+                "tau": 9.506426342e-06,
                 "params": {
                   "mu": 0,
-                  "r": 0,
+                  "r": 0.016,
                   "sigma": 1.5
                 }
               },
               "linearSlippageFactor": "0.001",
-              "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.685",
+                "commitmentMinTimeFraction": "0.85",
                 "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.5"
               },
-              "liquidityFeeSettings": null,
+              "liquidityFeeSettings": {
+                "method": "METHOD_MARGINAL_COST"
+              },
               "liquidationStrategy": {
-                "disposalTimeStep": "30",
-                "disposalFraction": "0.1",
-                "fullDisposalSize": "0",
+                "disposalTimeStep": "1",
+                "disposalFraction": "1",
+                "fullDisposalSize": "1000000",
                 "maxFractionConsumed": "0.1"
               },
               "markPriceConfiguration": {
                 "decayWeight": "1.0",
                 "decayPower": "1",
-                "cashAmount": "5000000",
+                "cashAmount": "50000000",
                 "sourceWeights": [],
                 "sourceStalenessTolerance": [
                   "1m",
@@ -543,6 +553,849 @@
                 "dataSourcesSpecBinding": [
                   {
                     "priceSourceProperty": "eth.price"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "enactmentTimestamp": "**TO_UPDATE**",
+          "updateMarket": {
+            "marketId": "b0ef037ff334cb83f80897b92ce197b440e27af47e671cd59933595e942abfc9",
+            "changes": {
+              "instrument": {
+                "code": "INJ/USDT",
+                "name": "Injective / Tether USD (Perpetual)",
+                "perpetual": {
+                  "quoteName": "USDT",
+                  "marginFundingFactor": "0.9",
+                  "interestRate": "0.1095",
+                  "clampLowerBound": "-0.0005",
+                  "clampUpperBound": "0.0005",
+                  "fundingRateLowerBound": "-0.01",
+                  "fundingRateUpperBound": "0.01",
+                  "dataSourceSpecForSettlementSchedule": {
+                    "internal": {
+                      "timeTrigger": {
+                        "conditions": [
+                          {
+                            "operator": "OPERATOR_GREATER_THAN",
+                            "value": "0"
+                          }
+                        ],
+                        "triggers": [
+                          {
+                            "every": "28800"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "dataSourceSpecForSettlementData": {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0x7a5bc1d2b56ad029048cd63964b3ad2776eadf812edc1a43a31406cb54bff592"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "inj.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "inj.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  },
+                  "dataSourceSpecBinding": {
+                    "settlementDataProperty": "inj.price",
+                    "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
+                  },
+                  "fundingRateScalingFactor": "0.00001",
+                  "internalCompositePriceConfiguration": {
+                    "decayWeight": "1.0",
+                    "decayPower": "1",
+                    "cashAmount": "50000000",
+                    "sourceWeights": [
+                      "0.0",
+                      "0.999",
+                      "0.001",
+                      "0.0"
+                    ],
+                    "sourceStalenessTolerance": [
+                      "1m",
+                      "1m",
+                      "10m",
+                      "10m"
+                    ],
+                    "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                    "dataSourcesSpec": [
+                      {
+                        "external": {
+                          "ethOracle": {
+                            "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                            "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                            "method": "getPrice",
+                            "args": [
+                              "0x7a5bc1d2b56ad029048cd63964b3ad2776eadf812edc1a43a31406cb54bff592"
+                            ],
+                            "trigger": {
+                              "timeTrigger": {
+                                "every": "60"
+                              }
+                            },
+                            "requiredConfirmations": "3",
+                            "filters": [
+                              {
+                                "key": {
+                                  "name": "inj.price",
+                                  "type": "TYPE_INTEGER",
+                                  "numberDecimalPlaces": "18"
+                                },
+                                "conditions": [
+                                  {
+                                    "operator": "OPERATOR_GREATER_THAN",
+                                    "value": "0"
+                                  }
+                                ]
+                              }
+                            ],
+                            "normalisers": [
+                              {
+                                "name": "inj.price",
+                                "expression": "$[0]"
+                              }
+                            ],
+                            "sourceChainId": "100"
+                          }
+                        }
+                      }
+                    ],
+                    "dataSourcesSpecBinding": [
+                      {
+                        "priceSourceProperty": "inj.price"
+                      }
+                    ]
+                  }
+                }
+              },
+              "metadata": [
+                "base:INJ",
+                "quote:USDT",
+                "oracle:pyth",
+                "oracleChain:gnosis",
+                "class:fx/crypto",
+                "perpetual",
+                "sector:defi",
+                "enactment:2024-02-04T15:00:00Z"
+              ],
+              "priceMonitoringParameters": {
+                "triggers": [
+                  {
+                    "horizon": "21600",
+                    "probability": "0.9999999",
+                    "auctionExtension": "86400"
+                  },
+                  {
+                    "horizon": "4320",
+                    "probability": "0.9999999",
+                    "auctionExtension": "300"
+                  },
+                  {
+                    "horizon": "1440",
+                    "probability": "0.9999999",
+                    "auctionExtension": "180"
+                  },
+                  {
+                    "horizon": "360",
+                    "probability": "0.9999999",
+                    "auctionExtension": "120"
+                  }
+                ]
+              },
+              "liquidityMonitoringParameters": {
+                "targetStakeParameters": {
+                  "timeWindow": "3600",
+                  "scalingFactor": 0.05
+                },
+                "triggeringRatio": "0.9",
+                "auctionExtension": "1"
+              },
+              "logNormal": {
+                "riskAversionParameter": 1e-06,
+                "tau": 7.1e-06,
+                "params": {
+                  "mu": 0,
+                  "r": 0,
+                  "sigma": 1.5
+                }
+              },
+              "linearSlippageFactor": "0.001",
+              "quadraticSlippageFactor": "0",
+              "liquiditySlaParameters": {
+                "priceRange": "0.03",
+                "commitmentMinTimeFraction": "0.85",
+                "performanceHysteresisEpochs": "1",
+                "slaCompetitionFactor": "0.5"
+              },
+              "liquidityFeeSettings": {
+                "method": "METHOD_MARGINAL_COST"
+              },
+              "liquidationStrategy": {
+                "disposalTimeStep": "1",
+                "disposalFraction": "1",
+                "fullDisposalSize": "1000000",
+                "maxFractionConsumed": "0.1"
+              },
+              "markPriceConfiguration": {
+                "decayWeight": "1.0",
+                "decayPower": "1",
+                "cashAmount": "0",
+                "sourceWeights": [
+                  "0.0",
+                  "0.0",
+                  "1.0",
+                  "0.0"
+                ],
+                "sourceStalenessTolerance": [
+                  "1m",
+                  "1m",
+                  "1m",
+                  "1m"
+                ],
+                "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                "dataSourcesSpec": [
+                  {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0x7a5bc1d2b56ad029048cd63964b3ad2776eadf812edc1a43a31406cb54bff592"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "inj.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "inj.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  }
+                ],
+                "dataSourcesSpecBinding": [
+                  {
+                    "priceSourceProperty": "inj.price"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "enactmentTimestamp": "**TO_UPDATE**",
+          "updateMarket": {
+            "marketId": "5ec43c5d3570ff001b5072faeeff56b4320124175a76a1b624df80169b1ece5e",
+            "changes": {
+              "instrument": {
+                "code": "SNX/USDT",
+                "name": "Synthetix / Tether USD (Perpetual)",
+                "perpetual": {
+                  "quoteName": "USDT",
+                  "marginFundingFactor": "0.9",
+                  "interestRate": "0.1095",
+                  "clampLowerBound": "-0.0005",
+                  "clampUpperBound": "0.0005",
+                  "fundingRateLowerBound": "-0.01",
+                  "fundingRateUpperBound": "0.01",
+                  "dataSourceSpecForSettlementSchedule": {
+                    "internal": {
+                      "timeTrigger": {
+                        "conditions": [
+                          {
+                            "operator": "OPERATOR_GREATER_THAN",
+                            "value": "0"
+                          }
+                        ],
+                        "triggers": [
+                          {
+                            "every": "28800"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "dataSourceSpecForSettlementData": {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502da3"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "snx.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "snx.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  },
+                  "dataSourceSpecBinding": {
+                    "settlementDataProperty": "snx.price",
+                    "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
+                  },
+                  "fundingRateScalingFactor": "0.00001",
+                  "internalCompositePriceConfiguration": {
+                    "decayWeight": "1.0",
+                    "decayPower": "1",
+                    "cashAmount": "50000000",
+                    "sourceWeights": [
+                      "0.0",
+                      "0.999",
+                      "0.001",
+                      "0.0"
+                    ],
+                    "sourceStalenessTolerance": [
+                      "1m",
+                      "1m",
+                      "10m",
+                      "10m"
+                    ],
+                    "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                    "dataSourcesSpec": [
+                      {
+                        "external": {
+                          "ethOracle": {
+                            "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                            "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                            "method": "getPrice",
+                            "args": [
+                              "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502da3"
+                            ],
+                            "trigger": {
+                              "timeTrigger": {
+                                "every": "60"
+                              }
+                            },
+                            "requiredConfirmations": "3",
+                            "filters": [
+                              {
+                                "key": {
+                                  "name": "snx.price",
+                                  "type": "TYPE_INTEGER",
+                                  "numberDecimalPlaces": "18"
+                                },
+                                "conditions": [
+                                  {
+                                    "operator": "OPERATOR_GREATER_THAN",
+                                    "value": "0"
+                                  }
+                                ]
+                              }
+                            ],
+                            "normalisers": [
+                              {
+                                "name": "snx.price",
+                                "expression": "$[0]"
+                              }
+                            ],
+                            "sourceChainId": "100"
+                          }
+                        }
+                      }
+                    ],
+                    "dataSourcesSpecBinding": [
+                      {
+                        "priceSourceProperty": "snx.price"
+                      }
+                    ]
+                  }
+                }
+              },
+              "metadata": [
+                "base:SNX",
+                "quote:USDT",
+                "oracle:pyth",
+                "oracleChain:gnosis",
+                "class:fx/crypto",
+                "perpetual",
+                "sector:defi",
+                "enactment:2024-02-03T14:00:00Z"
+              ],
+              "priceMonitoringParameters": {
+                "triggers": [
+                  {
+                    "horizon": "21600",
+                    "probability": "0.9999999",
+                    "auctionExtension": "86400"
+                  },
+                  {
+                    "horizon": "4320",
+                    "probability": "0.9999999",
+                    "auctionExtension": "300"
+                  },
+                  {
+                    "horizon": "1440",
+                    "probability": "0.9999999",
+                    "auctionExtension": "180"
+                  },
+                  {
+                    "horizon": "360",
+                    "probability": "0.9999999",
+                    "auctionExtension": "120"
+                  }
+                ]
+              },
+              "liquidityMonitoringParameters": {
+                "targetStakeParameters": {
+                  "timeWindow": "3600",
+                  "scalingFactor": 0.05
+                },
+                "triggeringRatio": "0.9",
+                "auctionExtension": "1"
+              },
+              "logNormal": {
+                "riskAversionParameter": 1e-06,
+                "tau": 7.1e-06,
+                "params": {
+                  "mu": 0,
+                  "r": 0,
+                  "sigma": 1.5
+                }
+              },
+              "linearSlippageFactor": "0.001",
+              "quadraticSlippageFactor": "0",
+              "liquiditySlaParameters": {
+                "priceRange": "0.03",
+                "commitmentMinTimeFraction": "0.85",
+                "performanceHysteresisEpochs": "1",
+                "slaCompetitionFactor": "0.5"
+              },
+              "liquidityFeeSettings": {
+                "method": "METHOD_MARGINAL_COST"
+              },
+              "liquidationStrategy": {
+                "disposalTimeStep": "1",
+                "disposalFraction": "1",
+                "fullDisposalSize": "1000000",
+                "maxFractionConsumed": "0.1"
+              },
+              "markPriceConfiguration": {
+                "decayWeight": "1.0",
+                "decayPower": "1",
+                "cashAmount": "0",
+                "sourceWeights": [
+                  "0.0",
+                  "0.0",
+                  "1.0",
+                  "0.0"
+                ],
+                "sourceStalenessTolerance": [
+                  "1m",
+                  "1m",
+                  "1m",
+                  "1m"
+                ],
+                "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                "dataSourcesSpec": [
+                  {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0x39d020f60982ed892abbcd4a06a276a9f9b7bfbce003204c110b6e488f502da3"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "snx.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "snx.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  }
+                ],
+                "dataSourcesSpecBinding": [
+                  {
+                    "priceSourceProperty": "snx.price"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "enactmentTimestamp": "**TO_UPDATE**",
+          "updateMarket": {
+            "marketId": "603f891b390fa67ac1a7b8f520c743e776cf58da7b8637e2572d556ba55f2878",
+            "changes": {
+              "instrument": {
+                "code": "LDO/USDT",
+                "name": "Lido / Tether USD (Perpetual)",
+                "perpetual": {
+                  "quoteName": "USDT",
+                  "marginFundingFactor": "0.9",
+                  "interestRate": "0.1095",
+                  "clampLowerBound": "-0.0005",
+                  "clampUpperBound": "0.0005",
+                  "fundingRateLowerBound": "-0.01",
+                  "fundingRateUpperBound": "0.01",
+                  "dataSourceSpecForSettlementSchedule": {
+                    "internal": {
+                      "timeTrigger": {
+                        "conditions": [
+                          {
+                            "operator": "OPERATOR_GREATER_THAN",
+                            "value": "0"
+                          }
+                        ],
+                        "triggers": [
+                          {
+                            "every": "28800"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "dataSourceSpecForSettlementData": {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0xc63e2a7f37a04e5e614c07238bedb25dcc38927fba8fe890597a593c0b2fa4ad"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "ldo.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "ldo.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  },
+                  "dataSourceSpecBinding": {
+                    "settlementDataProperty": "ldo.price",
+                    "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
+                  },
+                  "fundingRateScalingFactor": "0.00001",
+                  "internalCompositePriceConfiguration": {
+                    "decayWeight": "1.0",
+                    "decayPower": "1",
+                    "cashAmount": "50000000",
+                    "sourceWeights": [
+                      "0.0",
+                      "0.999",
+                      "0.001",
+                      "0.0"
+                    ],
+                    "sourceStalenessTolerance": [
+                      "1m",
+                      "1m",
+                      "10m",
+                      "10m"
+                    ],
+                    "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                    "dataSourcesSpec": [
+                      {
+                        "external": {
+                          "ethOracle": {
+                            "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                            "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                            "method": "getPrice",
+                            "args": [
+                              "0xc63e2a7f37a04e5e614c07238bedb25dcc38927fba8fe890597a593c0b2fa4ad"
+                            ],
+                            "trigger": {
+                              "timeTrigger": {
+                                "every": "60"
+                              }
+                            },
+                            "requiredConfirmations": "3",
+                            "filters": [
+                              {
+                                "key": {
+                                  "name": "ldo.price",
+                                  "type": "TYPE_INTEGER",
+                                  "numberDecimalPlaces": "18"
+                                },
+                                "conditions": [
+                                  {
+                                    "operator": "OPERATOR_GREATER_THAN",
+                                    "value": "0"
+                                  }
+                                ]
+                              }
+                            ],
+                            "normalisers": [
+                              {
+                                "name": "ldo.price",
+                                "expression": "$[0]"
+                              }
+                            ],
+                            "sourceChainId": "100"
+                          }
+                        }
+                      }
+                    ],
+                    "dataSourcesSpecBinding": [
+                      {
+                        "priceSourceProperty": "ldo.price"
+                      }
+                    ]
+                  }
+                }
+              },
+              "metadata": [
+                "base:LDO",
+                "quote:USDT",
+                "oracle:pyth",
+                "oracleChain:gnosis",
+                "class:fx/crypto",
+                "perpetual",
+                "sector:defi",
+                "enactment:2024-02-04T15:00:00Z"
+              ],
+              "priceMonitoringParameters": {
+                "triggers": [
+                  {
+                    "horizon": "21600",
+                    "probability": "0.9999999",
+                    "auctionExtension": "86400"
+                  },
+                  {
+                    "horizon": "4320",
+                    "probability": "0.9999999",
+                    "auctionExtension": "300"
+                  },
+                  {
+                    "horizon": "1440",
+                    "probability": "0.9999999",
+                    "auctionExtension": "180"
+                  },
+                  {
+                    "horizon": "360",
+                    "probability": "0.9999999",
+                    "auctionExtension": "120"
+                  }
+                ]
+              },
+              "liquidityMonitoringParameters": {
+                "targetStakeParameters": {
+                  "timeWindow": "3600",
+                  "scalingFactor": 0.05
+                },
+                "triggeringRatio": "0.9",
+                "auctionExtension": "1"
+              },
+              "logNormal": {
+                "riskAversionParameter": 1e-06,
+                "tau": 7.1e-06,
+                "params": {
+                  "mu": 0,
+                  "r": 0,
+                  "sigma": 1.5
+                }
+              },
+              "linearSlippageFactor": "0.001",
+              "quadraticSlippageFactor": "0",
+              "liquiditySlaParameters": {
+                "priceRange": "0.03",
+                "commitmentMinTimeFraction": "0.85",
+                "performanceHysteresisEpochs": "1",
+                "slaCompetitionFactor": "0.5"
+              },
+              "liquidityFeeSettings": {
+                "method": "METHOD_MARGINAL_COST"
+              },
+              "liquidationStrategy": {
+                "disposalTimeStep": "1",
+                "disposalFraction": "1",
+                "fullDisposalSize": "1000000",
+                "maxFractionConsumed": "0.1"
+              },
+              "markPriceConfiguration": {
+                "decayWeight": "1.0",
+                "decayPower": "1",
+                "cashAmount": "0",
+                "sourceWeights": [
+                  "0.0",
+                  "0.0",
+                  "1.0",
+                  "0.0"
+                ],
+                "sourceStalenessTolerance": [
+                  "1m",
+                  "1m",
+                  "1m",
+                  "1m"
+                ],
+                "compositePriceType": "COMPOSITE_PRICE_TYPE_WEIGHTED",
+                "dataSourcesSpec": [
+                  {
+                    "external": {
+                      "ethOracle": {
+                        "address": "0x719abd606155442c21b7d561426d42bd0e40a776",
+                        "abi": "[{\n    \"inputs\": [\n      {\n        \"internalType\": \"bytes32\",\n        \"name\": \"id\",\n        \"type\": \"bytes32\"\n      }\n    ],\n    \"name\": \"getPrice\",\n    \"outputs\": [\n      {\n        \"internalType\": \"int256\",\n        \"name\": \"\",\n        \"type\": \"int256\"\n      }\n    ],\n    \"stateMutability\": \"view\",\n    \"type\": \"function\"\n    }]",
+                        "method": "getPrice",
+                        "args": [
+                          "0xc63e2a7f37a04e5e614c07238bedb25dcc38927fba8fe890597a593c0b2fa4ad"
+                        ],
+                        "trigger": {
+                          "timeTrigger": {
+                            "every": "60"
+                          }
+                        },
+                        "requiredConfirmations": "3",
+                        "filters": [
+                          {
+                            "key": {
+                              "name": "ldo.price",
+                              "type": "TYPE_INTEGER",
+                              "numberDecimalPlaces": "18"
+                            },
+                            "conditions": [
+                              {
+                                "operator": "OPERATOR_GREATER_THAN",
+                                "value": "0"
+                              }
+                            ]
+                          }
+                        ],
+                        "normalisers": [
+                          {
+                            "name": "ldo.price",
+                            "expression": "$[0]"
+                          }
+                        ],
+                        "sourceChainId": "100"
+                      }
+                    }
+                  }
+                ],
+                "dataSourcesSpecBinding": [
+                  {
+                    "priceSourceProperty": "ldo.price"
                   }
                 ]
               }
