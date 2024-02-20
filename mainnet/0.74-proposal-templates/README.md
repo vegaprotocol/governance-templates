@@ -61,13 +61,16 @@ The first proposed parameter value updates, applicable to both BTC/USDT and ETH/
 
 ##### BTC/USDT market
 
-The second proposed parameter value updates, for the BTC/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.999", "0.001", "0.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "10m", "10m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+The next proposed parameter value updates, for the BTC/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
 
 
 ##### ETH/USDT market
 
-The third proposed parameter value updates, for the ETH/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.999", "0.001", "0.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+The next proposed parameter value updates, for the ETH/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
 
+##### INJ/USDT, LDO/USDT, SNX/USDT markets
+
+The next proposed parameter value updates, for the INJ/USDT, LDO/USDT, SNX/USDT markets, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "1.0", "0.0"]`,  `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means the oracle specified in the data source section is used as the mark price data source.
 
 #### Rationale
 
