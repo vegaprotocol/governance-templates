@@ -51,7 +51,7 @@ With additional flexibility in setting the liquidity fee, two new methods have b
 
 ### Funding rate configuration
 
-To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.01` and `0.01` respectively. This cap would ensure the funding rate will always be greater than `-10%` and less than `10%`.
+To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.01` and `0.01` respectively. This cap would ensure the funding rate will always be greater than `-1%` and less than `1%`.
 
 ### Mark price configuration
 
