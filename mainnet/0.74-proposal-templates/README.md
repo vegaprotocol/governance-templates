@@ -49,36 +49,79 @@ No change for now, and its for the market makers propose to change later once th
 
 With additional flexibility in setting the liquidity fee, two new methods have been introduced as options for liquidity fee setting: the [Stake Weighted Average](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#stake-weighted-average-method-for-setting-the-liquidity-fee-factor) method and the [Constant Liquidity Fee](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#constant-liquidity-fee-method) method. No change has been proposed as liquidity providers should review these methods and make governance proposals to change the method if and as desired.
 
-### Mark price and “composite” internal price for perpetual funding TWAP updates
+### Funding rate configuration
 
-For information on the new mark price fields and how they are used please see the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
+To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.01` and `0.01` respectively. This cap would ensure the funding rate will always be greater than `-1%` and less than `1%`.
 
-#### Proposed value(s)
+### Mark price configuration
 
-##### All markets
+To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
-The first proposed parameter value updates, applicable to both BTC/USDT and ETH/USDT markets, sits in the section `perpetual`, with `fundingRateLowerBound` set to `-0.01` and `fundingRateUpperBound` set to `0.01`.
+Across all markets, use of a single oracle provided by [Pyth](https://pyth.network/) via Gnosis Chain (which allows for the most frequent updates of the networks currently available to source data) in the `markPriceConfiguration` is recommended initially.
 
-##### BTC/USDT market
+For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
-The second proposed parameter value updates, for the BTC/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.999", "0.001", "0.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "10m", "10m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+Palazzo Mistero introduces the ability to configure multiple sources for mark price, therefore reducing the risk of market manipulation leading to adverse mark to market events.
 
+The following sources can now be used:
 
-##### ETH/USDT market
+- trade price (time-averaged VWAP of trades over the last mark price period)
+- book price (time-averaged mid price on the book over the last mark price period)
+- external data source(s)
 
-The third proposed parameter value updates, for the ETH/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.999", "0.001", "0.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+It is possible to take either the median of these sources, or assign a weighting to each of them and calculate the mean.
 
+Which of these approaches to use depends on the nature of the market and the community's risk appetite, with each providing benefits and risks.
 
-#### Rationale
+Effectively, weighting more towards using local Vega prices will give a cleaner user experience with MTM events being clearly related to the price and order book on the exchange, but are clearly in light of recent events more at risk of manipulation, particularly with illiquid markets.
 
-For perpetual futures markets, there are now flexible configuration options for both mark price and the composite internal price for funding. This allows the market to potentially use different mark price methods for mark-to-market and price monitoring, and a completely different price for calculating funding (for perpetual futures markets).
+Conversely, weighting more towards external sources should (assuming those sources are resilient themselves) provide more resistance to manipulation, but comes with the downside of potentially leading to MTMs and / or liquidations that may be counter intuitive to what users observe on the order book on Vega.
+
+In each case, a single Pyth oracle is suggested as the external source.  Slightly differing approaches are proposed for two groups of markets based on the current liquidity of those markets on Vega and the implications on manipulation risk.
+
+#### BTC/USDT, ETH/USDT markets
+
+For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and prices given by any number of oracles set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.
+
+To ensure stale data does not skew the mark price, it is recommended the `sourceStaleTolerance` fields are set to `["1m", "1m", "1m", "1m"]`. This means any price will be considered stale and no longer be used in the median calculation if it is not updated for `1m`.
+
+To increase the difficulty of manipulating the trade price, setting the `decayWeight` to `1.0` and the `decayPower` to `1` is recommended. This will ensure all trades in the update period are considered when calculating the trade price rather than just the most recent trade. Setting these values to 1 will linearly weight more recent and larger trades.
+
+Additionally, to increase the difficulty of manipulating the order book price, the `cashAmount` field could be set to `50000000` (50 USDT). This cash amount requires orders requiring at least 50 USDT worth of margin to be provided on both sides of the book for a fresh book price to be calculated.
+
+#### INJ/USDT, LDO/USDT, SNX/USDT markets
+
+For less liquid markets which are more easily manipulated (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf) for the manipulation of the LDO market), a mark price configuration which does not rely on internal price sources is recommended initially.
+
+This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively). With this configuration the pyth oracle price will be the **only** factor in calculating the mark price.
+
+Whilst with the above configuration the trade price and book price are not needed, for completeness the following parameters could be set.
+
+- `decayWeight` set to `1.0`
+- `decayPower` set to `1`
+- `cashAmount` set to `50000000`
 
 ### Liquidation strategy improvements
 
 #### Proposed value(s)
 
-Liquidation strategy is a new section which can be set in `liquidationStrategy` while `disposalTimeStep` is set to `30`, `disposalFraction` is set to `0.1`, `disposalFraction` is set to `0`, and `maxFractionConsumed` is set to `0.1`
+Liquidation strategy is a new section which can be set in `liquidationStrategy`. Initially the following parameter values are recommended, `disposalTimeStep` is set to `1`, `disposalFraction` is set to `1`, `fullDisposalSize` is set to `1000000`, and `maxFractionConsumed` is set to `0.1`
 
 #### Rationale
 
 Improvements have been made to how distressed parties are liquidated. This configuration is used to allow the network to hold an active position on the market. Parties that are distressed, but previously couldn't be liquidated because there was insufficient volume on the book, will now be liquidated. In this process the party's position is transferred to the network party, and rather than dumping the distressed volume on the market, an inventory management strategy carries this out over time.
+
+The values proposed above result in an aggressive disposal strategy where the network will attempt to dispose it's full position every `1s` but never consuming more than `10%` of the volume on one side of the book.
+
+### Price Monitoring Bounds
+
+In the recent market manipulation of the LDO market (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf)) it was shown price monitoring auctions, although triggered, were not long enough to give market makers sufficient time to react to the manipulation attempts.
+
+Therefore it is recommended a new trigger which results in a long auction for large price movements is added, and the auction period of all other triggers is increased. The recommended triggers are:
+
+- `horizon` set to `360`, `probability` set to `0.9999999`, and `auctionExtension` set to `300` (or `5m`, increased from `120`).
+- `horizon` set to `1440`, `probability` set to `0.9999999`, and `auctionExtension` set to `1800` (or `30m`, increased from `180`).
+- `horizon` set to `4320`, `probability` set to `0.9999999`, and `auctionExtension` set to `3600` (or `1h`, increased from `300`).
+- `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (or `1d`).
+
+Note: For the ETH/USDT market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
