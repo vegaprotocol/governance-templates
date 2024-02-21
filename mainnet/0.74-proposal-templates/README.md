@@ -95,3 +95,16 @@ Improvements have been made to how distressed parties are liquidated. This confi
 The values proposed above result in an aggressive disposal strategy where the network will attempt to dispose it's full position every `1s` but never consuming more than `10%` of the volume on one side of the book.
 
 
+### Price Monitoring Bounds
+
+In the recent market manipulation of the LDO market (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf)) it was shown price monitoring auctions, although triggered, were not long enough to give market makers sufficient time to react to the manipulation attempts.
+
+Therefore it is recommended a new trigger which results in a long auction for large price movements is added, and the auction period of all other triggers is increased. The recommended triggers are:
+
+
+- `horizon` set to `360`, `probability` set to `0.9999999`, and `auctionExtension` set to `300` (increased from `120`).
+- `horizon` set to `1440`, `probability` set to `0.9999999`, and `auctionExtension` set to `1800` (increased from `180`).
+- `horizon` set to `4320`, `probability` set to `0.9999999`, and `auctionExtension` set to `3600` (increased from `300`).
+- `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (increased from `120`).
+
+Note: For the ETHUSDT-PERP market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
