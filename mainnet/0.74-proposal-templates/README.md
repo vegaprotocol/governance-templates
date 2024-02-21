@@ -57,7 +57,7 @@ To ensure across all markets during adverse market conditions the funding rate r
 
 To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
-Across all markets, use of a single pyth oracle in the markPriceConfiguration is recommended initially. 
+Across all markets, use of a single pyth oracle in the markPriceConfiguration is recommended initially.
 
 For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
@@ -75,7 +75,7 @@ Additionally, to increase the difficulty of manipulating the order book price, t
 
 For less liquid markets which are more easily manipulated (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf) for the manipulation of the LDO market), a mark price configuration which does not rely on internal price sources is recommended initially.
 
-This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively). With this configuration the pyth oracle price will be the **only** factor in calculating the mark price. 
+This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively). With this configuration the pyth oracle price will be the **only** factor in calculating the mark price.
 
 Whilst with the above configuration the trade price and book price are not needed, for completeness the following parameters could be set.
 
