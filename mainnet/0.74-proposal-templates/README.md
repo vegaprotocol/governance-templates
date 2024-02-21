@@ -69,7 +69,7 @@ To ensure stale data does not skew the mark price, it is recommended the `source
 
 To increase the difficulty of manipulating the trade price, setting the `decayWeight` to `1.0` and the `decayPower` to `1` is recommended. This will ensure all trades in the update period are considered when calculating the trade price rather than just the most recent trade. Setting these values to 1 will linearly weight more recent and larger trades.
 
-Additionally, to increase the difficulty of manipulating the order book price, the `cashAmount` field could be set to `50000000` (50 USDT). This cash amount requires a sufficient volume of orders to be provided on both sides of the book for a fresh book price to be calculated.
+Additionally, to increase the difficulty of manipulating the order book price, the `cashAmount` field could be set to `50000000` (50 USDT). This cash amount requires orders requiring at least 50 USDT worth of margin to be provided on both sides of the book for a fresh book price to be calculated.
 
 #### INJ/USDT, LDO/USDT, SNX/USDT markets
 
