@@ -106,4 +106,4 @@ Therefore it is recommended a new trigger which results in a long auction for la
 - `horizon` set to `4320`, `probability` set to `0.9999999`, and `auctionExtension` set to `3600` (increased from `300`).
 - `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (increased from `120`).
 
-Note: For the ETHUSDT-PERP market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
+Note: For the ETH/USDT market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
