@@ -61,6 +61,24 @@ Across all markets, use of a single oracle provided by [Pyth](https://pyth.netwo
 
 For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
+Palazzo Mistero introduces the ability to configure multiple sources for mark price, therefore reducing the risk of market manipulation leading to adverse mark to market events.
+
+The following sources can now be used:
+
+- trade price (time-averaged VWAP of trades over the last mark price period)
+- book price (time-averaged mid price on the book over the last mark price period)
+- external data source(s)
+
+It is possible to take either the median of these sources, or assign a weighting to each of them and calculate the mean.
+
+Which of these approaches to use depends on the nature of the market and the community's risk appetite, with each providing benefits and risks.
+
+Effectively, weighting more towards using local Vega prices will give a cleaner user experience with MTM events being clearly related to the price and order book on the exchange, but are clearly in light of recent events more at risk of manipulation, particularly with illiquid markets.
+
+Conversely, weighting more towards external sources should (assuming those sources are resilient themselves) provide more resistance to manipulation, but comes with the downside of potentially leading to MTMs and / or liquidations that may be counter intuitive to what users observe on the order book on Vega.
+
+In each case, a single Pyth oracle is suggested as the external source.  Slightly differing approaches are proposed for two groups of markets based on the current liquidity of those markets on Vega and the implications on manipulation risk.
+
 #### BTC/USDT, ETH/USDT markets
 
 For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and prices given by any number of oracles set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.
