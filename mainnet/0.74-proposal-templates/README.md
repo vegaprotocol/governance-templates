@@ -78,6 +78,7 @@ For less liquid markets which are more easily manipulated (see the [report](http
 This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively). With this configuration the pyth oracle price will be the **only** factor in calculating the mark price. 
 
 Whilst with the above configuration the trade price and book price are not needed, for completeness the following parameters could be set.
+
 - `decayWeight` set to `1.0`
 - `decayPower` set to `1`
 - `cashAmount` set to `50000000`
@@ -94,13 +95,11 @@ Improvements have been made to how distressed parties are liquidated. This confi
 
 The values proposed above result in an aggressive disposal strategy where the network will attempt to dispose it's full position every `1s` but never consuming more than `10%` of the volume on one side of the book.
 
-
 ### Price Monitoring Bounds
 
 In the recent market manipulation of the LDO market (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf)) it was shown price monitoring auctions, although triggered, were not long enough to give market makers sufficient time to react to the manipulation attempts.
 
 Therefore it is recommended a new trigger which results in a long auction for large price movements is added, and the auction period of all other triggers is increased. The recommended triggers are:
-
 
 - `horizon` set to `360`, `probability` set to `0.9999999`, and `auctionExtension` set to `300` (increased from `120`).
 - `horizon` set to `1440`, `probability` set to `0.9999999`, and `auctionExtension` set to `1800` (increased from `180`).
