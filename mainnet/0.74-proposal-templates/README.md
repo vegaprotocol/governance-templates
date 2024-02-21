@@ -86,8 +86,12 @@ Whilst with the above configuration the trade price and book price are not neede
 
 #### Proposed value(s)
 
-Liquidation strategy is a new section which can be set in `liquidationStrategy` while `disposalTimeStep` is set to `30`, `disposalFraction` is set to `0.1`, `disposalFraction` is set to `0`, and `maxFractionConsumed` is set to `0.1`
+Liquidation strategy is a new section which can be set in `liquidationStrategy`. Initially the following parameter values are recommended, `disposalTimeStep` is set to `1`, `disposalFraction` is set to `1`, `fullDisposalSize` is set to `1000000`, and `maxFractionConsumed` is set to `0.1`
 
 #### Rationale
 
 Improvements have been made to how distressed parties are liquidated. This configuration is used to allow the network to hold an active position on the market. Parties that are distressed, but previously couldn't be liquidated because there was insufficient volume on the book, will now be liquidated. In this process the party's position is transferred to the network party, and rather than dumping the distressed volume on the market, an inventory management strategy carries this out over time.
+
+The values proposed above result in an aggressive disposal strategy where the network will attempt to dispose it's full position every `1s` but never consuming more than `10%` of the volume on one side of the book.
+
+
