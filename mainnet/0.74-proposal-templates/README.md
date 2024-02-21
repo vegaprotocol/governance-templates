@@ -57,7 +57,7 @@ To ensure across all markets during adverse market conditions the funding rate r
 
 To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
-Across all markets, use of a single pyth oracle in the markPriceConfiguration is recommended initially.
+Across all markets, use of a single oracle provided by [Pyth](https://pyth.network/) via Gnosis Chain (which allows for the most frequent updates of the networks currently available to source data) in the `markPriceConfiguration` is recommended initially.
 
 For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
@@ -101,9 +101,9 @@ In the recent market manipulation of the LDO market (see the [report](https://ve
 
 Therefore it is recommended a new trigger which results in a long auction for large price movements is added, and the auction period of all other triggers is increased. The recommended triggers are:
 
-- `horizon` set to `360`, `probability` set to `0.9999999`, and `auctionExtension` set to `300` (increased from `120`).
-- `horizon` set to `1440`, `probability` set to `0.9999999`, and `auctionExtension` set to `1800` (increased from `180`).
-- `horizon` set to `4320`, `probability` set to `0.9999999`, and `auctionExtension` set to `3600` (increased from `300`).
-- `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (increased from `120`).
+- `horizon` set to `360`, `probability` set to `0.9999999`, and `auctionExtension` set to `300` (or `5m`, increased from `120`).
+- `horizon` set to `1440`, `probability` set to `0.9999999`, and `auctionExtension` set to `1800` (or `30m`, increased from `180`).
+- `horizon` set to `4320`, `probability` set to `0.9999999`, and `auctionExtension` set to `3600` (or `1h`, increased from `300`).
+- `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (or `1d`).
 
 Note: For the ETH/USDT market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
