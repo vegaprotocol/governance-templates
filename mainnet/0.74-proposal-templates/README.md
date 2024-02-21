@@ -49,32 +49,36 @@ No change for now, and its for the market makers propose to change later once th
 
 With additional flexibility in setting the liquidity fee, two new methods have been introduced as options for liquidity fee setting: the [Stake Weighted Average](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#stake-weighted-average-method-for-setting-the-liquidity-fee-factor) method and the [Constant Liquidity Fee](https://github.com/vegaprotocol/specs/blob/palazzo/protocol/0042-LIQF-setting_fees_and_rewarding_lps.md#constant-liquidity-fee-method) method. No change has been proposed as liquidity providers should review these methods and make governance proposals to change the method if and as desired.
 
-### Mark price and “composite” internal price for perpetual funding TWAP updates
+### Funding rate configuration
 
-For information on the new mark price fields and how they are used please see the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
+To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.01` and `0.01` respectively. This cap would ensure the funding rate will always be greater than `-10%` and less than `10%`.
 
-#### Proposed value(s)
+### Mark price configuration
 
-##### All markets
+To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
-The first proposed parameter value updates, applicable to both BTC/USDT and ETH/USDT markets, sits in the section `perpetual`, with `fundingRateLowerBound` set to `-0.01` and `fundingRateUpperBound` set to `0.01`.
+For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
-##### BTC/USDT market
+#### BTC/USDT, ETH/USDT markets
 
-The next proposed parameter value updates, for the BTC/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and prices given by any number of oracles set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.
 
+To ensure stale data does not skew the mark price, it is recommended the `sourceStaleTolerance` fields are set to `["1m", "1m", "1m", "1m"]`. This means any price will be dropped from the median calculation if it is not updated for `1m`.
 
-##### ETH/USDT market
+To increase the difficulty of manipulating the trade price, setting the `decayWeight` to `1.0` and the `decayPower` to `1` is recommended. This will ensure not only the most recent trade is included in the calculation of the trade price, but more recent and larger trades will be given an increased weighting.
 
-The next proposed parameter value updates, for the ETH/USDT market, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "0.0", "1.0"]` which means `median` is used as the mark price data source. `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means mark price is weighted price from data source where external data source is set in section `dataSourcesSpec`.
+Additionally, to increase the difficulty of manipulating the order book price, the `cashAmount` field could be set to `50000000` (50 USDT). This cash amount requires a sufficient volume of orders to be provided on both sides of the book for a fresh book price to be calculated.
 
-##### INJ/USDT, LDO/USDT, SNX/USDT markets
+#### INJ/USDT, LDO/USDT, SNX/USDT markets
 
-The next proposed parameter value updates, for the INJ/USDT, LDO/USDT, SNX/USDT markets, sits in the section `markPriceConfiguration`, with `decayWeight` set to `1.0`, `decayPower` set to `1`, `cashAmount` set to `5000000`, and `sourceWeights` set to `["0.0", "0.0", "1.0", "0.0"]`,  `sourceStalenessTolerance` is set to `["1m", "1m", "1m", "1m"]`, `compositePriceType` is set to `COMPOSITE_PRICE_TYPE_WEIGHTED` which means the oracle specified in the data source section is used as the mark price data source.
+For less liquid markets which are more easily manipulated (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf) for the manipulation of the LDO market), a mark price configuration which does not rely on internal price sources is recommended initially.
 
-#### Rationale
+This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively).
 
-For perpetual futures markets, there are now flexible configuration options for both mark price and the composite internal price for funding. This allows the market to potentially use different mark price methods for mark-to-market and price monitoring, and a completely different price for calculating funding (for perpetual futures markets).
+Whilst with the above configuration the trade price and book price are not needed, for completeness the following parameters could be set.
+- `decayWeight` set to `1.0`
+- `decayPower` set to `1`
+- `cashAmount` set to `50000000`
 
 ### Liquidation strategy improvements
 
