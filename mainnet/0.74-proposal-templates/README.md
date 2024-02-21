@@ -57,15 +57,17 @@ To ensure across all markets during adverse market conditions the funding rate r
 
 To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
+Across all markets, use of a single pyth oracle in the markPriceConfiguration is recommended initially. 
+
 For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
 #### BTC/USDT, ETH/USDT markets
 
 For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and prices given by any number of oracles set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.
 
-To ensure stale data does not skew the mark price, it is recommended the `sourceStaleTolerance` fields are set to `["1m", "1m", "1m", "1m"]`. This means any price will be dropped from the median calculation if it is not updated for `1m`.
+To ensure stale data does not skew the mark price, it is recommended the `sourceStaleTolerance` fields are set to `["1m", "1m", "1m", "1m"]`. This means any price will be considered stale and no longer be used in the median calculation if it is not updated for `1m`.
 
-To increase the difficulty of manipulating the trade price, setting the `decayWeight` to `1.0` and the `decayPower` to `1` is recommended. This will ensure not only the most recent trade is included in the calculation of the trade price, but more recent and larger trades will be given an increased weighting.
+To increase the difficulty of manipulating the trade price, setting the `decayWeight` to `1.0` and the `decayPower` to `1` is recommended. This will ensure all trades in the update period are considered when calculating the trade price rather than just the most recent trade. Setting these values to 1 will linearly weight more recent and larger trades.
 
 Additionally, to increase the difficulty of manipulating the order book price, the `cashAmount` field could be set to `50000000` (50 USDT). This cash amount requires a sufficient volume of orders to be provided on both sides of the book for a fresh book price to be calculated.
 
@@ -73,7 +75,7 @@ Additionally, to increase the difficulty of manipulating the order book price, t
 
 For less liquid markets which are more easily manipulated (see the [report](https://vega.xyz/reports/VMAR-20240214_LDOUSDT.pdf) for the manipulation of the LDO market), a mark price configuration which does not rely on internal price sources is recommended initially.
 
-This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively).
+This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_WEIGHTED` and the `sourceWeights` to `[0, 0, 1, 0]` (values correspond to the weighting for the trade price, book price, oracle price and median price respectively). With this configuration the pyth oracle price will be the **only** factor in calculating the mark price. 
 
 Whilst with the above configuration the trade price and book price are not needed, for completeness the following parameters could be set.
 - `decayWeight` set to `1.0`
