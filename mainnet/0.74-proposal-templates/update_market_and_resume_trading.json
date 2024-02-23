@@ -218,17 +218,17 @@
                   {
                     "horizon": "4320",
                     "probability": "0.9999999",
-                    "auctionExtension": "300"
+                    "auctionExtension": "3600"
                   },
                   {
                     "horizon": "1440",
                     "probability": "0.9999999",
-                    "auctionExtension": "180"
+                    "auctionExtension": "1800"
                   },
                   {
                     "horizon": "360",
                     "probability": "0.9999999",
-                    "auctionExtension": "120"
+                    "auctionExtension": "300"
                   }
                 ]
               },
@@ -538,17 +538,17 @@
                   {
                     "horizon": "4320",
                     "probability": "0.9999999",
-                    "auctionExtension": "300"
+                    "auctionExtension": "3600"
                   },
                   {
                     "horizon": "1440",
                     "probability": "0.9999999",
-                    "auctionExtension": "180"
+                    "auctionExtension": "1800"
                   },
                   {
                     "horizon": "360",
                     "probability": "0.9999999",
-                    "auctionExtension": "120"
+                    "auctionExtension": "300"
                   }
                 ]
               },
@@ -562,11 +562,11 @@
               },
               "logNormal": {
                 "riskAversionParameter": 1e-06,
-                "tau": 9.506426342e-06,
+                "tau": 3.995e-06,
                 "params": {
                   "mu": 0,
-                  "r": 0.016,
-                  "sigma": 1.5
+                  "r": 0,
+                  "sigma": 1
                 }
               },
               "linearSlippageFactor": "0.001",
@@ -857,17 +857,17 @@
                   {
                     "horizon": "4320",
                     "probability": "0.9999999",
-                    "auctionExtension": "300"
+                    "auctionExtension": "3600"
                   },
                   {
                     "horizon": "1440",
                     "probability": "0.9999999",
-                    "auctionExtension": "180"
+                    "auctionExtension": "1800"
                   },
                   {
                     "horizon": "360",
                     "probability": "0.9999999",
-                    "auctionExtension": "120"
+                    "auctionExtension": "300"
                   }
                 ]
               },
@@ -1138,17 +1138,17 @@
                   {
                     "horizon": "4320",
                     "probability": "0.9999999",
-                    "auctionExtension": "300"
+                    "auctionExtension": "3600"
                   },
                   {
                     "horizon": "1440",
                     "probability": "0.9999999",
-                    "auctionExtension": "180"
+                    "auctionExtension": "1800"
                   },
                   {
                     "horizon": "360",
                     "probability": "0.9999999",
-                    "auctionExtension": "120"
+                    "auctionExtension": "300"
                   }
                 ]
               },
@@ -1419,17 +1419,17 @@
                   {
                     "horizon": "4320",
                     "probability": "0.9999999",
-                    "auctionExtension": "300"
+                    "auctionExtension": "3600"
                   },
                   {
                     "horizon": "1440",
                     "probability": "0.9999999",
-                    "auctionExtension": "180"
+                    "auctionExtension": "1800"
                   },
                   {
                     "horizon": "360",
                     "probability": "0.9999999",
-                    "auctionExtension": "120"
+                    "auctionExtension": "300"
                   }
                 ]
               },
