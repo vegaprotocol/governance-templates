@@ -51,13 +51,13 @@ With additional flexibility in setting the liquidity fee, two new methods have b
 
 ### Funding rate configuration
 
-To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.01` and `0.01` respectively. This cap would ensure the funding rate will always be greater than `-1%` and less than `1%`.
+To ensure across all markets during adverse market conditions the funding rate remains sensible, the `fundingRateLowerBound` and `fundingRateUpperBound` could be set to `-0.001` and `0.001` respectively (note these values have been adjusted from the original proposed values based on feedback on the forums). This cap would ensure the funding rate will always be greater than `-0.1%` and less than `0.1%`.
 
 ### Mark price configuration
 
 To reduce the probability of market or oracle manipulation causing "unfair" mark-to-market settlements or liquidations, markets can be configured to calculate a composite mark price using multiple sources.
 
-Across all markets, use of a single oracle provided by [Pyth](https://pyth.network/) via Gnosis Chain (which allows for the most frequent updates of the networks currently available to source data) in the `markPriceConfiguration` is recommended initially.
+Across all markets, use of a data feed provided by [Pyth](https://pyth.network/) via Gnosis Chain (which allows for the most frequent updates of the networks currently available to source data) in the `markPriceConfiguration` is recommended as the external data source initially.
 
 For detailed information on mark price configurations refer to the [vega docs site](https://docs.vega.xyz/testnet/tutorials/proposals/new-perpetuals-market#mark-price-configuration).
 
@@ -77,11 +77,11 @@ Effectively, weighting more towards using local Vega prices will give a cleaner 
 
 Conversely, weighting more towards external sources should (assuming those sources are resilient themselves) provide more resistance to manipulation, but comes with the downside of potentially leading to MTMs and / or liquidations that may be counter intuitive to what users observe on the order book on Vega.
 
-In each case, a single Pyth oracle is suggested as the external source.  Slightly differing approaches are proposed for two groups of markets based on the current liquidity of those markets on Vega and the implications on manipulation risk.
+As a result, slightly differing approaches are proposed for two groups of markets based on the current liquidity of those markets on Vega and the implications on manipulation risk.
 
 #### BTC/USDT, ETH/USDT markets
 
-For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and prices given by any number of oracles set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.
+For markets with higher liquidity and a greater number of LPs, a mark price configuration which takes the median value of the trade price, order book price, and 2 identical price feeds from Pyth as set in the `dataSourcesSpec` is recommended. This would be achieved by setting the `compositePriceType` to `COMPOSITE_PRICE_TYPE_MEDIAN`.  This means there will always be 4 prices, and the price taken will be the average of the 2nd and 3rd price when ordered sequentially.  Effectively this means the external price feed has additional weighting, but the local prices still play a role.  In the event the price was artificially lowered locally, this would mean the average of the external feed and the higher of the local prices would be used, hence reducing the impact of the manipulation. This approach gives good protection from manipulation, while still supporting some degree of local price discovery so provides a good initial balance.
 
 To ensure stale data does not skew the mark price, it is recommended the `sourceStaleTolerance` fields are set to `["1m", "1m", "1m", "1m"]`. This means any price will be considered stale and no longer be used in the median calculation if it is not updated for `1m`.
 
@@ -125,3 +125,12 @@ Therefore it is recommended a new trigger which results in a long auction for la
 - `horizon` set to `21600`, `probability` set to `0.9999999`, and `auctionExtension` set to `86400` (or `1d`).
 
 Note: For the ETH/USDT market in particular, this means the addition of two new price monitoring triggers as it currently only uses the single trigger.
+
+### Liquidity SLA & risk model changes
+
+The template also contains changes to the following parameters that were proposed by a community member.  Since these were community driven the rationale is not discussed here and can be found on the forums..
+
+- `liquiditySlaParameters.commitmentMinTimeFraction`: `0.75`
+- `liquiditySlaParameters.performanceHysteresisEpochs`: `0`
+- `liquiditySlaParameters.slaCompetitionFactor`: `0.8`
+- `logNormal.params.sigma`: `1.0`
