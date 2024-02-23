@@ -253,9 +253,9 @@
               "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.85",
-                "performanceHysteresisEpochs": "1",
-                "slaCompetitionFactor": "0.5"
+                "commitmentMinTimeFraction": "0.75",
+                "performanceHysteresisEpochs": "0",
+                "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
                 "method": "METHOD_MARGINAL_COST"
@@ -572,9 +572,9 @@
               "linearSlippageFactor": "0.001",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.85",
-                "performanceHysteresisEpochs": "1",
-                "slaCompetitionFactor": "0.5"
+                "commitmentMinTimeFraction": "0.75",
+                "performanceHysteresisEpochs": "0",
+                "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
                 "method": "METHOD_MARGINAL_COST"
@@ -892,9 +892,9 @@
               "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.85",
-                "performanceHysteresisEpochs": "1",
-                "slaCompetitionFactor": "0.5"
+                "commitmentMinTimeFraction": "0.75",
+                "performanceHysteresisEpochs": "0",
+                "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
                 "method": "METHOD_MARGINAL_COST"
@@ -1173,9 +1173,9 @@
               "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.85",
-                "performanceHysteresisEpochs": "1",
-                "slaCompetitionFactor": "0.5"
+                "commitmentMinTimeFraction": "0.75",
+                "performanceHysteresisEpochs": "0",
+                "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
                 "method": "METHOD_MARGINAL_COST"
@@ -1454,9 +1454,9 @@
               "quadraticSlippageFactor": "0",
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
-                "commitmentMinTimeFraction": "0.85",
-                "performanceHysteresisEpochs": "1",
-                "slaCompetitionFactor": "0.5"
+                "commitmentMinTimeFraction": "0.75",
+                "performanceHysteresisEpochs": "0",
+                "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
                 "method": "METHOD_MARGINAL_COST"
