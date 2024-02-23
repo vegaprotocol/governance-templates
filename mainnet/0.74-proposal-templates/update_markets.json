@@ -22,8 +22,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
-                  "fundingRateLowerBound": "-0.01",
-                  "fundingRateUpperBound": "0.01",
+                  "fundingRateLowerBound": "-0.001",
+                  "fundingRateUpperBound": "0.001",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
@@ -342,8 +342,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
-                  "fundingRateLowerBound": "-0.01",
-                  "fundingRateUpperBound": "0.01",
+                  "fundingRateLowerBound": "-0.001",
+                  "fundingRateUpperBound": "0.001",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
@@ -661,8 +661,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
-                  "fundingRateLowerBound": "-0.01",
-                  "fundingRateUpperBound": "0.01",
+                  "fundingRateLowerBound": "-0.001",
+                  "fundingRateUpperBound": "0.001",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
@@ -942,8 +942,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
-                  "fundingRateLowerBound": "-0.01",
-                  "fundingRateUpperBound": "0.01",
+                  "fundingRateLowerBound": "-0.001",
+                  "fundingRateUpperBound": "0.001",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
@@ -1223,8 +1223,8 @@
                   "interestRate": "0.1095",
                   "clampLowerBound": "-0.0005",
                   "clampUpperBound": "0.0005",
-                  "fundingRateLowerBound": "-0.01",
-                  "fundingRateUpperBound": "0.01",
+                  "fundingRateLowerBound": "-0.001",
+                  "fundingRateUpperBound": "0.001",
                   "dataSourceSpecForSettlementSchedule": {
                     "internal": {
                       "timeTrigger": {
