@@ -1,14 +1,59 @@
 {
   "batchProposalSubmission": {
     "rationale": {
-      "description": "Update market BTC/USD and ETH/USD",
-      "title": "Update Markets to support new v0.74.x features"
+      "description": "Update market BTC/USD and ETH/USD to set the fundingRateScalingFactor to 1.0 in both market. Also add two market state proposal to resume trading on both markets",
+      "title": "Update Markets and resume trading on BTC/USD and ETH/USD"
     },
     "reference": "**TO_UPDATE_OR_REMOVE**",
     "terms": {
       "closingTimestamp": "**TO_UPDATE**",
       "changes": [
-        {
+	  {
+              "enactmentTimestamp": "**TO_UPDATE**",
+              "updateMarketState": {
+		  "changes": {
+		      "marketId": "4e9081e20e9e81f3e747d42cb0c9b8826454df01899e6027a22e771e19cc79fc",
+		      "updateType": "MARKET_STATE_UPDATE_TYPE_RESUME"
+		  }
+              }
+	  },
+	  {
+              "enactmentTimestamp": "**TO_UPDATE**",
+              "updateMarketState": {
+		  "changes": {
+		      "marketId": "e63a37edae8b74599d976f5dedbf3316af82579447f7a08ae0495a021fd44d13",
+		      "updateType": "MARKET_STATE_UPDATE_TYPE_RESUME"
+		  }
+              }
+	  },
+	  {
+              "enactmentTimestamp": "**TO_UPDATE**",
+              "updateMarketState": {
+		  "changes": {
+		      "marketId": "b0ef037ff334cb83f80897b92ce197b440e27af47e671cd59933595e942abfc9",
+		      "updateType": "MARKET_STATE_UPDATE_TYPE_RESUME"
+		  }
+              }
+	  },
+	  {
+              "enactmentTimestamp": "**TO_UPDATE**",
+              "updateMarketState": {
+		  "changes": {
+		      "marketId": "5ec43c5d3570ff001b5072faeeff56b4320124175a76a1b624df80169b1ece5e",
+		      "updateType": "MARKET_STATE_UPDATE_TYPE_RESUME"
+		  }
+              }
+	  },
+	  {
+              "enactmentTimestamp": "**TO_UPDATE**",
+              "updateMarketState": {
+		  "changes": {
+		      "marketId": "603f891b390fa67ac1a7b8f520c743e776cf58da7b8637e2572d556ba55f2878",
+		      "updateType": "MARKET_STATE_UPDATE_TYPE_RESUME"
+		  }
+              }
+	  },
+          {
           "enactmentTimestamp": "**TO_UPDATE**",
           "updateMarket": {
             "marketId": "4e9081e20e9e81f3e747d42cb0c9b8826454df01899e6027a22e771e19cc79fc",
@@ -85,7 +130,7 @@
                     "settlementDataProperty": "btc.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "0.00001",
+                  "fundingRateScalingFactor": "1",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -231,7 +276,7 @@
                   "1m",
                   "1m",
                   "1m",
-		  "1m"
+                  "1m"
                 ],
                 "compositePriceType": "COMPOSITE_PRICE_TYPE_MEDIAN",
                 "dataSourcesSpec": [
@@ -405,7 +450,7 @@
                     "settlementDataProperty": "eth.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "0.00001",
+                  "fundingRateScalingFactor": "1",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -550,7 +595,7 @@
                   "1m",
                   "1m",
                   "1m",
-		  "1m"
+                  "1m"
                 ],
                 "compositePriceType": "COMPOSITE_PRICE_TYPE_MEDIAN",
                 "dataSourcesSpec": [
@@ -724,7 +769,7 @@
                     "settlementDataProperty": "inj.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "0.00001",
+                  "fundingRateScalingFactor": "1",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -1005,7 +1050,7 @@
                     "settlementDataProperty": "snx.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "0.00001",
+                  "fundingRateScalingFactor": "1",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
@@ -1286,7 +1331,7 @@
                     "settlementDataProperty": "ldo.price",
                     "settlementScheduleProperty": "vegaprotocol.builtin.timetrigger"
                   },
-                  "fundingRateScalingFactor": "0.00001",
+                  "fundingRateScalingFactor": "1",
                   "internalCompositePriceConfiguration": {
                     "decayWeight": "1.0",
                     "decayPower": "1",
