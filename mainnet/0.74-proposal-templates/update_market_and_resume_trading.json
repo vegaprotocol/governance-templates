@@ -254,7 +254,7 @@
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
                 "commitmentMinTimeFraction": "0.75",
-                "performanceHysteresisEpochs": "0",
+                "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
@@ -573,7 +573,7 @@
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
                 "commitmentMinTimeFraction": "0.75",
-                "performanceHysteresisEpochs": "0",
+                "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
@@ -893,7 +893,7 @@
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
                 "commitmentMinTimeFraction": "0.75",
-                "performanceHysteresisEpochs": "0",
+                "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
@@ -1174,7 +1174,7 @@
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
                 "commitmentMinTimeFraction": "0.75",
-                "performanceHysteresisEpochs": "0",
+                "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
@@ -1455,7 +1455,7 @@
               "liquiditySlaParameters": {
                 "priceRange": "0.03",
                 "commitmentMinTimeFraction": "0.75",
-                "performanceHysteresisEpochs": "0",
+                "performanceHysteresisEpochs": "1",
                 "slaCompetitionFactor": "0.8"
               },
               "liquidityFeeSettings": {
