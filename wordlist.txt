@@ -1,5 +1,8 @@
 BTC
 ETH
+INJ
+LDO
+SNX
 CLI
 DAI
 Ethereum
@@ -23,3 +26,10 @@ Validators
 validators
 vegawallet
 VWAP
+pyth
+LPs
+Gnosis
+Mistero
+MTM
+illiquid
+MTMs
