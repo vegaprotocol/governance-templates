@@ -128,7 +128,7 @@ Note: For the ETH/USDT market in particular, this means the addition of two new 
 
 ### Liquidity SLA & risk model changes
 
-The template also contains changes to the following parameters that were proposed by a community member.  Since these were communnity driven the ratioinale is not discussed here and can be found on the forums..
+The template also contains changes to the following parameters that were proposed by a community member.  Since these were community driven the rationale is not discussed here and can be found on the forums..
 
 - `liquiditySlaParameters.commitmentMinTimeFraction`: `0.75`
 - `liquiditySlaParameters.performanceHysteresisEpochs`: `0`

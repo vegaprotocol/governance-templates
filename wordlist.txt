@@ -21,6 +21,7 @@ pyth
 readme
 README
 Sepolia
+SLA
 SNX
 Tendermint
 tendermint
